@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -193,7 +194,10 @@
             </div>
         </div>
         <div class="version-text">Versão Atual: 6.0</div>
-        <a href="#" class="download-button" id="download-button">Download</a>
+        <form id="download-form" action="http://localhost:3000/verify-captcha" method="POST">
+            <button class="download-button" id="download-button">Download</button>
+            <div class="g-recaptcha" data-sitekey="6LfAwhMqAAAAAFKh2EMd2dHOItGODZyqNVv8kfX2"></div>
+        </form>
     </div>
 
     <div class="panel" id="info-panel">
@@ -260,27 +264,24 @@
             const mainPanel = document.getElementById('main-panel');
             const infoPanel = document.getElementById('info-panel');
             const fiveButtonsPanel = document.getElementById('five-buttons-panel');
-            const comboBoxContainer = document.getElementById('combo-box-container');
-            const backButton = document.getElementById('back-button');
             const versionsButton = document.getElementById('versions-button');
+            const comboBoxContainer = document.getElementById('combo-box-container');
             const goButton = document.getElementById('go-button');
+            const versionSelect = document.getElementById('version-select');
+            const backButton = document.getElementById('back-button');
             const backComboBoxButton = document.getElementById('back-combo-box');
 
-            // Mostrar os painéis iniciais e ocultar o painel de 5 botões
+            // Inicialmente, exibir painel principal e painel "Por que usar?"
+            mainPanel.style.display = 'block';
             infoPanel.style.display = 'block';
             fiveButtonsPanel.style.display = 'none';
             comboBoxContainer.style.display = 'none';
 
-            downloadButton.addEventListener('click', () => {
+            downloadButton.addEventListener('click', (e) => {
+                e.preventDefault();
                 mainPanel.style.display = 'none';
                 infoPanel.style.display = 'none';
                 fiveButtonsPanel.style.display = 'block';
-            });
-
-            backButton.addEventListener('click', () => {
-                fiveButtonsPanel.style.display = 'none';
-                mainPanel.style.display = 'block';
-                infoPanel.style.display = 'block';
             });
 
             versionsButton.addEventListener('click', () => {
@@ -288,15 +289,20 @@
                 comboBoxContainer.style.display = 'block';
             });
 
+            goButton.addEventListener('click', () => {
+                const selectedVersion = versionSelect.value;
+                window.open(selectedVersion, '_blank');
+            });
+
+            backButton.addEventListener('click', () => {
+                mainPanel.style.display = 'block';
+                infoPanel.style.display = 'block';
+                fiveButtonsPanel.style.display = 'none';
+            });
+
             backComboBoxButton.addEventListener('click', () => {
                 comboBoxContainer.style.display = 'none';
                 fiveButtonsPanel.style.display = 'block';
-            });
-
-            goButton.addEventListener('click', () => {
-                const versionSelect = document.getElementById('version-select');
-                const selectedVersion = versionSelect.value;
-                window.location.href = selectedVersion;
             });
         });
     </script>
