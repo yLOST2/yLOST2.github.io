@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOST LAUNCHER</title>
+    <meta name="description" content="LOST LAUNCHER - Um launcher focado em otimização e melhoria de FPS. Diga adeus às falhas de conexão e travamentos no Minecraft.">
+    <meta name="keywords" content="launcher, otimização, FPS, LOST LAUNCHER, download, yLost, v6, lost launcher,">
+    <meta name="author" content="yLost">
+    <link rel="icon" href="https://yLOST2.github.io/siteFotos/icone.png" type="image/png">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #121212; /* Fundo preto */
+            color: white; /* Texto branco */
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: #1e1e1e; /* Cabeçalho escuro */
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #ffffff; /* Linha inferior branca */
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 15px;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #27ae60; /* Verde para hover */
+        }
+
+        .button {
+    background-color: #27ae60; /* Verde */
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.3s, transform 0.3s;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Sombra */
+    display: block; /* Ocupa toda a largura do contêiner */
+    margin: 20px auto; /* Centraliza com margem automática */
+    max-width: 200px; /* Largura máxima */
+    text-align: center; /* Centraliza o texto */
+}
+
+
+        .button:hover {
+            background-color: #219150; /* Verde mais escuro ao passar o mouse */
+            transform: scale(1.1); /* Efeito de zoom ao passar o mouse */
+        }
+
+        main {
+            text-align: center;
+            padding: 40px 20px; /* Mais espaço em volta */
+        }
+
+        .green-bar {
+    background-color: #27ae60; /* Verde */
+    padding: 20px;
+    margin: 20px 0; /* Espaço entre as barras e o conteúdo */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza o conteúdo */
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra */
+}
+
+
+        .recursos {
+            margin: 60px 0; /* Espaço maior acima da seção de recursos */
+        }
+
+        .card {
+    background: #1e1e1e; /* Fundo das cartas */
+    margin: 20px;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Sombra */
+    display: inline-block;
+    width: calc(25% - 40px);
+    vertical-align: top;
+    opacity: 0; /* Inicia invisível */
+    transform: translateY(20px) scale(1); /* Move para baixo */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Animação */
+}
+
+.card:hover {
+    transform: translateY(0) scale(1.05); /* Aumenta um pouco ao passar o mouse */
+}
+
+
+        .card.visible {
+            opacity: 1; /* Visível */
+            transform: translateY(0); /* Retorna à posição original */
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #1e1e1e; /* Cabeçalho escuro */
+            color: white; /* Texto branco */
+            border-top: 2px solid #ffffff; /* Linha superior branca */
+        }
+
+        .social-media a {
+            color: #ffffff;
+            margin: 0 10px;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .social-media a:hover {
+            color: #27ae60; /* Verde para hover nas redes sociais */
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                width: calc(50% - 40px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                width: 100%;
+            }
+        }
+
+        ::selection {
+            background-color: rgba(39, 174, 96, 0.5); /* Verde meio transparente */
+            color: white; /* Cor do texto */
+        }
+
+        ::-moz-selection { /* Para Firefox */
+            background-color: rgba(39, 174, 96, 0.5);
+            color: white;
+        }
+
+        @keyframes rainbow {
+    0% { color: #00FA9A; } /* MediumSpringGreen */
+    10% { color: #00FF7F; } /* SpringGreen */
+    20% { color: #98FB98; } /* PaleGreen */
+    30% { color: #90EE90; } /* LightGreen */
+    40% { color: #32CD32; } /* LimeGreen */
+    50% { color: #00FF00; } /* Lime */
+    60% { color: #7CFC00; } /* LawnGreen */
+    70% { color: #ADFF2F; } /* GreenYellow */
+    80% { color: #7FFF00; } /* Chartreuse */
+    90% { color: #9ACD32; } /* YellowGreen */
+	100% { color: #00FA9A; } /* MediumSpringGreen */
+}
+
+
+        .card h3 {
+            color: white; /* Cor padrão */
+            transition: color 0.3s, transform 0.3s, text-shadow 0.3s; /* Transições suaves */
+        }
+
+        .card:hover h3 {
+            animation: rainbow 5s infinite; /* Animação RGB ao passar o mouse */
+            color: transparent; /* Mantém a cor de fundo enquanto a animação ocorre */
+            transform: scale(1.1); /* Aumenta o tamanho do título */
+            font-weight: bold; /* Torna o texto mais negrito */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Brilho atrás do título */
+        }
+.card {
+    perspective: 1000px; /* Cria uma perspectiva 3D */
+	opacity: 0; /* Inicia invisível */
+    transform: translateY(20px) scale(1); /* Move para baixo */
+    transition: opacity 0.5s ease, transform 0.5s ease; /* Animação */
+}
+
+.card img {
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
+}
+
+.card:hover img {
+    transform: translateZ(-10px); /* Move a imagem para trás quando o mouse está sobre a card */
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.7),  /* Verde mais forte */
+                0 0 15px rgba(255, 255, 0, 0.5), /* Amarelo */
+                0 0 15px rgba(0, 255, 255, 0.5); /* Ciano */
+}
+.card.visible {
+    opacity: 1; /* Visível */
+    transform: translateY(0); /* Retorna à posição original */
+}
+
+
+
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>LOST LAUNCHER</h1>
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#download">Download</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+    <section id="home">
+       <div class="green-bar">
+    <img src="imgs/lostlauncher_ico.png" alt="Imagem do Launcher" style="max-width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); margin-right: 20px;">
+    <div style="flex: 1; max-width: 500px; text-align: left;">
+        <h2 style="margin: 0; font-size: 2em;">Um Bom Launcher...</h2>
+        <p style="font-size: 1.2em; margin: 10px 0;">Descubra uma nova experiência definitiva com nosso launcher otimizado para variados tipos de computadores!</p>
+        <a href="abaixar.html" class="button" style="font-size: 1.2em;">Baixe Agora</a> <!-- Mudei o href -->
+    </div>
+</div>
+    </section>
+
+    <section class="recursos" style="padding: 40px 20px; text-align: center;">
+        <div style="display: flex; align-items: center; justify-content: center; margin-bottom: 20px;">
+            <img src="imgs/ferramenta.png" alt="Recursos" style="margin-right: 10px;">
+            <h2 style="font-size: 2.5em;">Recursos</h2>
+        </div>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; margin-top: 20px;">
+            <div class="card">
+                <img src="imgs/lostlauncher_programa.PNG" alt="Fácil de Usar" style="max-width: 100%; height: auto; margin-bottom: 10px;">
+                <h3>
+                    <span class="letter">F</span>
+                    <span class="letter">á</span>
+                    <span class="letter">c</span>
+                    <span class="letter">i</span>
+                    <span class="letter">l</span>
+                    <span class="letter"> </span>
+                    <span class="letter"> </span>
+                    <span class="letter">d</span>
+                    <span class="letter">e</span>
+                    <span class="letter"> </span>
+                    <span class="letter"> </span>
+                    <span class="letter">U</span>
+                    <span class="letter">s</span>
+                    <span class="letter">a</span>
+                    <span class="letter">r</span>
+                </h3>
+                <p>Interface intuitiva para todos os jogadores.</p>
+            </div>
+
+            <div class="card">
+                <img src="imgs/lostlauncher_jogo.png" alt="Mods e Pacotes" style="max-width: 100%; height: auto; margin-bottom: 10px;">
+                <h3>
+                    <span class="letter">M</span>
+                    <span class="letter">u</span>
+                    <span class="letter">i</span>
+                    <span class="letter">t</span>
+                    <span class="letter">o</span>
+                    <span class="letter"> </span>
+                    <span class="letter">O</span>
+                    <span class="letter">T</span>
+                    <span class="letter">I</span>
+                    <span class="letter">M</span>
+                    <span class="letter">I</span>
+                    <span class="letter">Z</span>
+                    <span class="letter">A</span>
+                    <span class="letter">D</span>
+                    <span class="letter">O</span>
+                </h3>
+                <p>Tenha mais FPS para seu jogo!</p>
+            </div>
+
+            <div class="card">
+                <img src="https://via.placeholder.com/100" alt="Atualizações Automáticas" style="max-width: 100%; height: auto; margin-bottom: 10px;">
+                <h3>
+                    <span class="letter">A</span>
+                    <span class="letter">t</span>
+                    <span class="letter">u</span>
+                    <span class="letter">a</span>
+                    <span class="letter">l</span>
+                    <span class="letter">i</span>
+                    <span class="letter">z</span>
+                    <span class="letter">a</span>
+                    <span class="letter">ç</span>
+                    <span class="letter">õ</span>
+                    <span class="letter">e</span>
+                    <span class="letter">s</span>
+                    <span class="letter"> </span>
+                    <span class="letter">A</span>
+                    <span class="letter">u</span>
+                    <span class="letter">t</span>
+                    <span class="letter">o</span>
+                </h3>
+                <p>Fique sempre na última versão.</p>
+            </div>
+
+            <div class="card">
+                <img src="https://via.placeholder.com/100" alt="Comunidade" style="max-width: 100%; height: auto; margin-bottom: 10px;">
+                <h3>
+                    <span class="letter">C</span>
+                    <span class="letter">o</span>
+                    <span class="letter">m</span>
+                    <span class="letter">u</span>
+                    <span class="letter">n</span>
+                    <span class="letter">i</span>
+                    <span class="letter">d</span>
+                    <span class="letter">a</span>
+                    <span class="letter">d</span>
+                    <span class="letter">e</span>
+                </h3>
+                <p>Fórum e suporte ativo.</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+
+    <footer>
+        <p>&copy; 2024 Lost Launcher. Todos os direitos reservados.</p>
+        <div class="social-media">
+            <a href="https://www.instagram.com/__ylost__/" target="_blank">Instagram</a>
+<a href="https://www.youtube.com/@ylostofc" target="_blank">Youtube</a>
+<a href="https://discord.com/invite/seu_link" target="_blank">Discord</a>
+        </div>
+    </footer>
+
+    <script>
+const cards = document.querySelectorAll('.card');
+
+    const observerOptions = {
+        root: null, // Usar a viewport do navegador
+        rootMargin: '0px',
+        threshold: 0.1 // 10% da card visível
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const card = entry.target;
+                card.classList.add('visible');
+                observer.unobserve(card); // Para não observar mais após a animação
+            }
+        });
+    }, observerOptions);
+
+    cards.forEach(card => {
+        observer.observe(card); // Começa a observar cada card
+    });
+    </script>
+</body>
+</html>

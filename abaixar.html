@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Downloads - LOST LAUNCHER</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #fff;
+            text-align: center;
+            padding: 50px;
+        }
+        h2 {
+            color: #4CAF50;
+            margin-bottom: 30px;
+        }
+        .button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            margin: 10px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .button:hover {
+            background-color: #45a049;
+            transform: translateY(-3px);
+        }
+        .combo-box-container {
+            background-color: #333;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+        select, .go-button {
+            padding: 10px;
+            font-size: 16px;
+            margin: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+        .go-button {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+        }
+        .go-button:hover {
+            background-color: #45a049;
+        }
+        .back-link {
+            display: inline-block;
+            margin-top: 30px;
+            color: white; /* Texto branco */
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .back-link:hover {
+            color: #00FF00; /* Muda a cor para verde */
+            text-decoration: underline;
+            transform: scale(1.1); /* Efeito de zoom */
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.8); /* Efeito de brilho */
+        }
+    </style>
+</head>
+<body>
+
+<h2>Escolha uma opção de download:</h2>
+
+<a href="https://pixeldrain.com/api/file/Jdpp4Gvu?download" class="button" target="_blank">EXECUTÁVEL [6.1 Release]</a>
+<a href="https://pixeldrain.com/api/file/eVvPGV9X?download" class="button" target="_blank">INSTALADOR [6.1 Release]</a>
+<a href="https://www.mediafire.com/folder/kwwrxbtru84k9/packs_lost" class="button" target="_blank">Complementos [Bases]</a>
+
+<div class="combo-box-container">
+    <h2>Selecione a versão</h2>
+    <select id="version-select">
+        <option value="https://pixeldrain.com/api/file/9Q8EHXhP?download">1.7.10</option>
+        <option value="https://pixeldrain.com/api/file/7M7usvzV?download">1.8.9</option>
+        <option value="https://pixeldrain.com/api/file/u9w2FFRR?download">1.8.9 CMPACK</option>
+        <option value="https://pixeldrain.com/api/file/tssuEDPk?download">1.12.2</option>
+        <option value="https://pixeldrain.com/api/file/jps1nJQN?download">1.14.4</option>
+    </select>
+    <button class="go-button" id="go-button">Ir</button>
+</div>
+
+<a href="index.html" class="back-link">Voltar para o início</a>
+
+<script>
+    document.getElementById("go-button").addEventListener("click", function() {
+        const selectedVersion = document.getElementById("version-select").value;
+        window.open(selectedVersion, "_blank");
+    });
+</script>
+
+</body>
+</html>
