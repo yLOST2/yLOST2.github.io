@@ -12,88 +12,95 @@
         }
 
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f2f2f2;
-            color: #333;
+            font-family: 'Roboto', sans-serif;
+            background-color: #121212; /* Cor de fundo escura */
+            color: #eaeaea; /* Texto claro */
             overflow-y: auto;
+            line-height: 1.6;
         }
 
+        /* Cabeçalho */
         header {
-            background-color: #222;
+            background-color: #1d1d1d;
             color: #fff;
-            padding: 20px;
+            padding: 40px 20px;
             text-align: center;
+            border-bottom: 2px solid #333;
         }
 
         h1 {
-            font-size: 2rem;
+            font-size: 3rem;
             margin-bottom: 10px;
         }
 
         p {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            margin-top: 10px;
         }
 
+        /* Container geral */
         .container {
             width: 100%;
             padding: 20px;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 30px;
         }
 
         .version-list {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            gap: 20px;
+            gap: 30px;
             margin-top: 20px;
         }
 
+        /* Cards de versão */
         .version-card {
-            background-color: #fff;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            width: 80%;
-            padding: 15px;
+            background-color: #1e1e1e;
+            border: 1px solid #333;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+            width: 300px;
+            padding: 20px;
             text-align: center;
             margin-bottom: 20px;
-            transition: box-shadow 0.3s ease-in-out;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+            transition: box-shadow 0.3s ease-in-out, transform 0.3s ease;
+            cursor: pointer;
         }
 
         .version-card:hover {
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.6);
+            transform: translateY(-5px);
         }
 
         .version-card h3 {
             margin: 10px 0;
-            font-size: 1.3rem;
+            font-size: 1.5rem;
+            color: #fff;
         }
 
         .version-card p {
-            color: #666;
-            font-size: 14px;
+            color: #aaa;
+            font-size: 1rem;
+            margin-bottom: 15px;
         }
 
         .version-card button {
-            margin-top: 15px;
-            padding: 10px 20px;
-            background-color: #007BFF;
+            padding: 12px 30px;
+            background-color: #2e8b57;
             color: #fff;
             border: none;
-            border-radius: 4px;
+            border-radius: 5px;
             font-weight: bold;
             cursor: pointer;
             transition: background-color 0.3s;
+            font-size: 1.2rem;
         }
 
         .version-card button:hover {
-            background-color: #0056b3;
+            background-color: #3cb371;
         }
 
         @media (max-width: 600px) {
@@ -102,137 +109,81 @@
             }
         }
 
-        /* Animações */
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-
-        @keyframes closeCorners {
-            0% {
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-                border-radius: 0;
-            }
-            100% {
-                top: 50%;
-                left: 50%;
-                right: 50%;
-                bottom: 50%;
-                border-radius: 50%;
-            }
-        }
-
-        footer {
-            background-color: #222;
-            color: #fff;
-            text-align: center;
-            padding: 15px 0;
-            margin-top: 20px;
-        }
-
-        .detail-panel {
+        /* Overlay para mostrar os detalhes */
+        #overlayDetails {
             position: fixed;
             top: 0;
             left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgba(0, 0, 0, 0.7);
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8); /* Fundo semi-transparente */
             display: none;
             justify-content: center;
             align-items: center;
             z-index: 9999;
-            visibility: hidden;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
         }
 
-        .detail-panel.visible {
-            display: flex;
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .detail-panel-content {
-            background-color: white;
-            width: 90%;
-            max-width: 500px;
-            height: 80%;
+        .overlay-content {
+            background-color: #1e1e1e;
             padding: 20px;
             border-radius: 10px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            overflow-y: auto;
-            position: relative;
+            width: 90%;
+            max-width: 600px;
+            color: #eaeaea;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.4);
+            text-align: center;
         }
 
-        .detail-panel-content h3 {
+        .overlay-content h3 {
             margin-top: 0;
-            font-size: 1.5rem;
+            font-size: 2rem;
         }
 
-        .detail-panel-content p {
-            font-size: 1rem;
-            color: #333;
+        .overlay-content p {
+            font-size: 1.2rem;
+            margin: 10px 0;
         }
 
-        .close-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            padding: 10px;
+        .overlay-content button {
+            padding: 10px 20px;
             background-color: #f44336;
             color: white;
-            text-decoration: none;
+            border: none;
             border-radius: 5px;
             font-weight: bold;
             cursor: pointer;
-            transition: background-color 0.3s;
+            margin-top: 20px;
         }
 
-        .close-btn:hover {
+        .overlay-content button:hover {
             background-color: #e53935;
         }
 
-        .download-btn {
-            padding: 15px;
-            background-color: #4CAF50;
-            color: white;
-            font-weight: bold;
+        footer {
+            background-color: #1d1d1d;
+            color: #aaa;
             text-align: center;
-            border-radius: 5px;
-            cursor: pointer;
-            text-decoration: none;
-            margin-top: 20px;
-            transition: background-color 0.3s;
-            display: inline-block;
-            width: 100%;
-            text-align: center;
-        }
-
-        .download-btn:hover {
-            background-color: #45a049;
+            padding: 20px;
+            margin-top: 40px;
+            border-top: 2px solid #333;
         }
     </style>
 </head>
 <body>
 
-<!-- Painel de Detalhes -->
-<div class="detail-panel" id="detailPanel">
-    <div class="detail-panel-content">
-        <a href="#" class="close-btn" id="closeDetailPanel">Fechar</a>
-        <h3 id="panelTitle">Título do Download</h3>
-        <p id="panelDescription">Descrição do jogo.</p>
-        <p><strong>Versão:</strong> <span id="panelVersion">1.19.0</span></p>
-        <p><strong>Estilo:</strong> <span id="panelStyle">Elevate</span></p>
-        <p><strong>Versão Android:</strong> <span id="panelAndroidVersion">10+</span></p>
-        <p><strong>Sistema:</strong> <span id="panelSystem">32 bits / 64 bits</span></p>
-        <a href="#" class="download-btn" id="downloadBtn" target="_blank">Baixar</a>
+<!-- Overlay para mostrar os detalhes -->
+<div id="overlayDetails">
+    <div class="overlay-content">
+        <button onclick="closeOverlay()">Fechar</button>
+        <h3 id="overlayTitle">1.19.81.01</h3>
+        <p id="overlayDescription">Super OTIMIZAÇÃO, JOGO SEM SOM, 100% otimizado com melhor frequencia!</p>
+        <p><strong>Estilo:</strong> <span id="overlayStyle">Elevate</span></p>
+        <p><strong>Versão Android:</strong> <span id="overlayAndroidVersion">4.0+</span></p>
+        <p><strong>Sistema:</strong> <span id="overlaySystem">32 bits / 64 bits</span></p>
+        <a href="#" id="overlayDownloadBtn" class="download-btn">Baixar</a>
     </div>
 </div>
 
-<!-- Conteúdo principal com os cards de versão -->
 <header>
     <h1>MinecrafTB LITE</h1>
     <p>MinecraftBEDROCK, feito para rodar em qualquer DISPOSITIVO!</p>
@@ -240,14 +191,11 @@
 
 <div class="container" id="downloadsContainer">
     <section class="version-list">
-        <!-- Version Card 1 -->
-        <div class="version-card" data-code="AFG23RA$D" data-title="Versão 1.19.81.01" data-description="Super OTIMIZAÇÃO, JOGO SEM SOM, 100% otimizado com melhor frequencia!" data-style="Elevate" data-android-version="4.0+" data-system="32 bits / 64 bits">
+        <div class="version-card" data-code="S7iVMqjg" data-title="1.19.81.01" data-description="Super OTIMIZAÇÃO, JOGO SEM SOM, 100% otimizado com melhor frequencia!" data-style="Elevate" data-android-version="4.0+" data-system="32 bits / 64 bits">
             <h3>MINECRAFT 1.19.81.01 - SEM SOM</h3>
             <p>Super OTIMIZAÇÃO, JOGO SEM SOM, 100% otimizado com melhor frequencia.</p>
-            <button onclick="showDetails(this)">Baixar</button>
+            <button onclick="showOverlay(this)">Baixar</button>
         </div>
-        
-        
     </section>
 </div>
 
@@ -256,9 +204,18 @@
 </footer>
 
 <script>
-    // Função para mostrar o painel de detalhes
-    function showDetails(button) {
-        // Obtém os dados armazenados no card clicado
+    // Função para verificar se é dispositivo móvel
+    function isMobile() {
+        return /Mobi|Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+    }
+
+    // Se não for dispositivo móvel, redireciona para uma página de erro ou exibe um alerta
+    if (!isMobile()) {
+        document.body.innerHTML = "<h1>Este site é apenas para dispositivos móveis!</h1>";
+    }
+
+    // Função para mostrar o overlay com os detalhes
+    function showOverlay(button) {
         var card = button.closest('.version-card');
         var title = card.getAttribute('data-title');
         var description = card.getAttribute('data-description');
@@ -267,22 +224,21 @@
         var system = card.getAttribute('data-system');
         var code = card.getAttribute('data-code');
 
-        // Preenche os dados no painel de detalhes
-        document.getElementById('panelTitle').textContent = title;
-        document.getElementById('panelDescription').textContent = description;
-        document.getElementById('panelStyle').textContent = style;
-        document.getElementById('panelAndroidVersion').textContent = androidVersion;
-        document.getElementById('panelSystem').textContent = system;
-        document.getElementById('downloadBtn').href = "redirect.html?code=" + code;
+        document.getElementById('overlayTitle').textContent = title;
+        document.getElementById('overlayDescription').textContent = description;
+        document.getElementById('overlayStyle').textContent = style;
+        document.getElementById('overlayAndroidVersion').textContent = androidVersion;
+        document.getElementById('overlaySystem').textContent = system;
 
-        // Exibe o painel
-        document.getElementById('detailPanel').classList.add('visible');
+        var url = "https://pixeldrain.com/api/file/" + code + "?download";
+        document.getElementById('overlayDownloadBtn').setAttribute('href', url);
+
+        document.getElementById('overlayDetails').style.display = 'flex';
     }
 
-    // Função para fechar o painel
-    document.getElementById('closeDetailPanel').addEventListener('click', function() {
-        document.getElementById('detailPanel').classList.remove('visible');
-    });
+    function closeOverlay() {
+        document.getElementById('overlayDetails').style.display = 'none';
+    }
 </script>
 
 </body>
