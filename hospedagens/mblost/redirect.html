@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecionando...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            color: #333;
+            text-align: center;
+            padding: 50px;
+        }
+
+        .loader {
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #3498db;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        h1 {
+            margin-top: 20px;
+            font-size: 24px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="loader"></div>
+<h1>Fazendo o download...</h1>
+
+<script>
+    // Função para pegar o parâmetro "code" da URL
+    function getQueryParameter(name) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(name);
+    }
+
+    // Obter o código da versão a partir da URL
+    const code = getQueryParameter('code');
+
+    // Verificar se o código foi encontrado e redirecionar para o link apropriado
+    if (code) {
+        let downloadUrl = ''; // Variável para armazenar o link de download
+
+        // Aqui você define os links de download com base no código
+        switch(code) {
+            case 'AFG23RA$D':
+                downloadUrl = 'https://pixeldrain.com/api/file/S7iVMqjg?download'; // Link para versão 1.19.0
+                break;
+            default:
+                downloadUrl = ''; // Código inválido, redireciona para erro ou página inicial
+                break;
+        }
+
+        // Verificar se o link foi encontrado e redirecionar
+        if (downloadUrl) {
+            setTimeout(function() {
+                window.location.href = downloadUrl; // Redireciona para o arquivo de download
+            }, 2000); // Aguardar 2 segundos antes de redirecionar
+        } else {
+            // Caso o código não tenha correspondido a nenhum, redireciona para uma página de erro ou inicial
+            setTimeout(function() {
+                window.location.href = 'error.html'; // Página de erro caso o código não seja encontrado
+            }, 2000);
+        }
+    } else {
+        // Caso o parâmetro 'code' não exista na URL, redireciona para uma página de erro ou inicial
+        setTimeout(function() {
+            window.location.href = 'error.html'; // Página de erro ou página inicial
+        }, 2000);
+    }
+</script>
+
+</body>
+</html>
