@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LIXPR - Quizziz</title>
+    <style>
+        /* Reset de estilos para um layout mais consistente */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* Estilização do fundo */
+body {
+    background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Animação de entrada suave */
+.container {
+    text-align: center;
+    padding: 20px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    font-size: 2.5em;
+    text-shadow: 0px 0px 10px white;
+    margin-bottom: 20px;
+    animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+    from {
+        text-shadow: 0px 0px 10px white;
+    }
+    to {
+        text-shadow: 0px 0px 20px white;
+    }
+}
+
+/* Estilização do input */
+.input-container {
+    display: flex;
+    gap: 10px;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+input {
+    padding: 12px;
+    width: 300px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: 0.3s;
+}
+
+input:focus {
+    outline: none;
+    box-shadow: 0 0 10px white;
+}
+
+/* Estilização do botão */
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    background: white;
+    color: black;
+    font-size: 1em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ccc;
+    transform: scale(1.05);
+}
+
+/* Overlay do iframe */
+.iframe-overlay {
+    position: fixed;
+    top: 5%;
+    left: 5%;
+    width: 90%;
+    height: 90%;
+    background: rgba(0, 0, 0, 0.87);
+    backdrop-filter: blur(10px);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.iframe-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Botões dentro do iframe */
+.buttons-container {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.buttons-container button {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.buttons-container button:hover {
+    background: white;
+    transform: scale(1.1);
+}
+
+/* Estilização do overlay de injeção */
+.injection-overlay {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+    display: none;
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>LIXPR - Quizziz</h1>
+        <div class="input-container">
+            <input type="text" id="linkInput" placeholder="Cole o link aqui...">
+            <button onclick="openIframe()">Abrir</button>
+        </div>
+    </div>
+    <div class="iframe-overlay" id="iframeOverlay">
+        <div class="iframe-container">
+            <div class="buttons-container">
+                <button id="injectButton" onclick="showInjectionMenu()">PEGAR SCRIPT</button>
+                <button onclick="removeInjection()">FECHAR</button>
+            </div>
+            <iframe id="iframe" src=""></iframe>
+        </div>
+    </div>
+    <div class="injection-overlay" id="injectionOverlay">
+        <p>Escolha a I.A!</p>
+        <select id="aiSelector">
+            <option value="chatgpt">ChatGPT 4 Mini</option>
+            <option value="gemini">Gemini 2.0</option>
+        </select>
+        <br><br>
+        <button onclick="copyScript()">Copiar Script</button>
+    </div>
+    <script>
+        function openIframe() {
+            const link = document.getElementById('linkInput').value;
+            if (link.startsWith("https://quizizz.com/join/game/")) {
+                document.getElementById('iframe').src = link;
+                document.getElementById('iframeOverlay').style.display = 'flex';
+            }
+        }
+        function showInjectionMenu() {
+            document.getElementById('injectionOverlay').style.display = 'block';
+        }
+        function copyScript() {
+            const aiType = document.getElementById('aiSelector').value;
+            let scriptUrl = '';
+
+            if (aiType === 'chatgpt') {
+                scriptUrl = 'sis/quizziz/chatgpt.js';
+            } else if (aiType === 'gemini') {
+                scriptUrl = 'sis/quizziz/s_gemini.js';
+            } else {
+                alert("ERRO: Método não encontrado!!");
+                return;
+            }
+
+            const scriptToCopy = `fetch("${scriptUrl}")\n.then(res => res.text())\n.then(eval);`;
+
+            navigator.clipboard.writeText(scriptToCopy).then(() => {
+                alert("Script copiado! Agora cole no console do navegador.");
+                document.getElementById('injectionOverlay').style.display = 'none';
+            }).catch(err => {
+                alert("Erro ao copiar o script. Copie manualmente:\n" + scriptToCopy);
+            });
+        }
+        function removeInjection() {
+            document.getElementById('iframe').src = "";
+            document.getElementById('iframeOverlay').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
