@@ -6,248 +6,25 @@
     <title>WLRHUB - Biblioteca de Scripts Privada</title>
     <script src="protect.js"></script>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        body {
-            background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
-            color: white;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 100vh;
-            padding: 20px;
-            text-align: center;
-            overflow: hidden; /* Para a neve não ultrapassar os limites da tela */
-        }
-
-        .snowflake {
-            position: fixed;
-            top: -10px;
-            font-size: 8px;
-            color: white;
-            opacity: 0.8;
-            animation: snowfall linear infinite;
-        }
-
-        @keyframes snowfall {
-            0% {
-                transform: translateX(0) translateY(0);
-                opacity: 1;
-            }
-            100% {
-                transform: translateX(0) translateY(100vh);
-                opacity: 0;
-            }
-        }
-
-        h1 {
-            font-size: 2.5em;
-            text-shadow: 0px 0px 10px white;
-            margin-bottom: 40px;
-            animation: fadeIn 1.5s ease-in-out, float 2.5s infinite ease-in-out;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes float {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
-        }
-
-        .container {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
-            width: 80%;
-            max-width: 600px;
-            backdrop-filter: blur(10px);
-            animation: slideIn 1s ease-in-out;
-            z-index: 1;
-        }
-
-        .script-box {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 15px;
-    margin-top: 15px;
-    border-radius: 5px;
-    text-align: left;
-    overflow-x: auto;
-    cursor: pointer;
-    transition: 0.3s;
-    z-index: 2;
-    display: flex;
-    flex-direction: column;  /* Organiza o conteúdo em coluna */
-}
-
-.script-box:hover {
-    background: rgba(255, 255, 255, 0.3);
-}
-
-/* Adicionando a classe para a descrição */
-.script-box p {
-    font-size: 14px; /* Pode ajustar o tamanho da fonte conforme necessário */
-    color: #dddddd;
-    margin-top: 10px;
-    word-wrap: break-word;  /* Permite quebra de linha no conteúdo */
-    overflow-wrap: break-word;  /* Outra propriedade para quebra de linha */
-    white-space: normal;  /* Permite a quebra de linha e evita que o texto fique em uma única linha */
-    text-overflow: ellipsis;  /* Adiciona '...' caso o texto ultrapasse o limite da caixa */
-    display: -webkit-box;
-    -webkit-line-clamp: 3; /* Limita o número de linhas visíveis a 3 (ajustável conforme necessário) */
-    -webkit-box-orient: vertical;
-    overflow: hidden;  /* Esconde o conteúdo que ultrapassa o limite */
-}
-
-
-        .modal {
-    position: fixed;
-    top: 13%;  /* 13% de distância do topo */
-    left: 50%;
-    transform: translateX(-50%);  /* Mantém o modal centralizado horizontalmente */
-    width: 75%;
-    height: auto;  /* Ajusta a altura do modal conforme o conteúdo */
-    max-height: 80vh;  /* Define uma altura máxima (80% da altura da tela) */
-    background: #1e1e1e;
-    border: 1px solid #333;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
-    border-radius: 8px;
-    display: none;
-    flex-direction: column;
-    padding: 15px;
-    z-index: 3;
-    overflow-y: auto; /* Permite rolagem caso o conteúdo ultrapasse a altura máxima */
-}
-
-.modal-title {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #ffffff;
-    margin-bottom: 10px;
-    border-bottom: 1px solid #333;
-    padding-bottom: 5px;
-}
-
-.sub-title {
-    font-size: 1.2em;
-    font-weight: normal;
-    color: #dddddd;
-    margin-top: 10px;
-}
-
-.description {
-    font-size: 1em;
-    color: #888;
-    margin-top: 5px;
-}
-
-
-        .code-container {
-            width: 100%;
-            height: 15%;  /* Altura de 15% do modal */
-            background: #252526;
-            border: 1px solid #444;
-            border-radius: 5px;
-            display: flex;
-            overflow: hidden;
-            font-family: "Courier New", monospace;
-            margin-top: 20px;
-        }
-
-        .code-lines {
-            width: 50px;
-            padding: 10px 5px;
-            background: #2d2d2d;
-            text-align: right;
-            color: #888;
-            font-size: 14px;
-            font-family: "Courier New", monospace;
-            user-select: none;
-            border-right: 1px solid #444;
-        }
-
-        .code {
-            flex-grow: 1;
-            padding: 10px;
-            font-size: 14px;
-            line-height: 1.5;
-            white-space: pre-wrap;
-            word-wrap: break-word;
-            cursor: text;
-            outline: none;
-            border: none;
-            background: transparent;
-            color: #d4d4d4;
-            overflow-y: auto;
-            height: 100%;
-        }
-
-        .close-btn {
-            margin-top: 20px;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 5px;
-            background: #0078D4;
-            color: white;
-            font-size: 14px;
-            cursor: pointer;
-            transition: 0.3s;
-            width: 110px;
-            align-self: center;
-        }
-
-        .close-btn:hover {
-            background: #005a9e;
-        }
-		
-		/* A camada de fundo com o efeito de desfoque e escurecimento */
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.82);  /* 82% de transparência */
-    backdrop-filter: blur(10px);  /* Aplica o desfoque no fundo */
-    display: none;  /* Inicialmente, está escondida */
-    z-index: 2;
-}
-
-
+        .script-box,body{display:flex;flex-direction:column}.code-container,.code-lines{font-family:"Courier New",monospace}.code,.script-box p{word-wrap:break-word}.modal,.overlay,.snowflake{position:fixed}.container,.overlay{backdrop-filter:blur(10px)}*{margin:0;padding:0;box-sizing:border-box;font-family:Arial,sans-serif}body{background:linear-gradient(135deg,#0f0f0f,#1c1c1c);color:#fff;align-items:center;justify-content:center;min-height:100vh;padding:20px;text-align:center;overflow:hidden}.snowflake{top:-10px;font-size:8px;color:#fff;opacity:.8;animation:linear infinite snowfall}@keyframes snowfall{0%{transform:translateX(0) translateY(0);opacity:1}100%{transform:translateX(0) translateY(100vh);opacity:0}}h1{font-size:2.5em;text-shadow:0 0 10px #fff;margin-bottom:40px;animation:1.5s ease-in-out fadeIn,2.5s ease-in-out infinite float}@keyframes fadeIn{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}.container{background:rgba(255,255,255,.1);padding:20px;border-radius:10px;box-shadow:0 0 20px rgba(255,255,255,.2);width:80%;max-width:600px;animation:1s ease-in-out slideIn;z-index:1}.script-box{background:rgba(255,255,255,.2);padding:15px;margin-top:15px;border-radius:5px;text-align:left;overflow-x:auto;cursor:pointer;transition:.3s;z-index:2}.script-box:hover{background:rgba(255,255,255,.3)}.script-box p{font-size:14px;color:#ddd;margin-top:10px;overflow-wrap:break-word;white-space:normal;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}.modal{top:13%;left:50%;transform:translateX(-50%);width:75%;height:auto;max-height:80vh;background:#1e1e1e;border:1px solid #333;box-shadow:0 4px 15px rgba(0,0,0,.5);border-radius:8px;display:none;flex-direction:column;padding:15px;z-index:3;overflow-y:auto}.modal-title{font-size:1.5em;font-weight:700;color:#fff;margin-bottom:10px;border-bottom:1px solid #333;padding-bottom:5px}.sub-title{font-size:1.2em;font-weight:400;color:#ddd;margin-top:10px}.description{font-size:1em;color:#888;margin-top:5px}.code-container{width:100%;height:15%;background:#252526;border:1px solid #444;border-radius:5px;display:flex;overflow:hidden;margin-top:20px}.code-lines{width:50px;padding:10px 5px;background:#2d2d2d;text-align:right;color:#888;font-size:14px;user-select:none;border-right:1px solid #444}.close-btn,.code{border:none;font-size:14px}.code{flex-grow:1;padding:10px;line-height:1.5;white-space:pre-wrap;cursor:text;outline:0;background:0 0;color:#d4d4d4;overflow-y:auto;height:100%}.close-btn{margin-top:20px;padding:10px 20px;border-radius:5px;background:#0078d4;color:#fff;cursor:pointer;transition:.3s;width:110px;align-self:center}.close-btn:hover{background:#005a9e}.overlay{top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,.82);display:none;z-index:2}
     </style>
 </head>
 <body>
     <h1>📜 WLRHUB 📜</h1>
     <div class="container">
-        <p>Obtenha os Scripts abaixo:</p>
-        
+        <p>Obtenha os Scripts abaixo:</p>   
         <div class="script-box" onclick="showScript('Quizziz - Responder Perguntas Simples!', `(async () => eval(await (await fetch('https://yLOST2.github.io/WLRHUB/sis/quizziz/s_gemini.js')).text()))();`)">
     <h2>Quizziz [v0.3]</h2>
     <p>Reponda perguntas simples dos "Quizziz.com".</p>
 </div>
-
 <div class="script-box" onclick="showScript('Redação Paraná [Em Dev!]', `console.log('em dev!!')`)">
     <h2>Redação Paraná</h2>
     <p>Escreva um Texto Personalizado na Redação Paraná.</p>
 </div>
-
 <div class="script-box" onclick="showScript('Leia Paraná - Responda perguntas dos Livros!', `(async () => eval(await (await fetch('https://yLOST2.github.io/WLRHUB/sis/leiapr/s_leiapr.js')).text()))();`)">
     <h2>Leia Paraná [v0.6]</h2>
     <p>Responda as perguntas dos livros da plataforma "Leiaparana.odilo.us".</p>
 </div>
-
     </div>
 	<div class="overlay" id="overlay"></div>
     <div class="modal" id="scriptModal">
@@ -262,72 +39,202 @@
     </div>
 
     <script>
-        function showScript(title, code) {
-    document.getElementById("modalTitle").innerText = title;
-    document.getElementById("modalCode").innerText = code;
-    
-    let lines = code.split('\n').map((_, index) => (index + 1) + '.').join('\n');
-    document.getElementById("codeLines").innerText = lines;
-    
-    // Definindo subtítulo e descrição
-    document.getElementById("subTitle").innerText = "Como Usar?";
-    document.getElementById("descriptionText").innerText = "Clique em cima do Codico Abaixo! entre no seu referido site, e cole no console do desenvolvedor! ou use uma ferramente de injeção.";
-    
-    // Mostrar o modal
-    document.getElementById("scriptModal").style.display = "flex";
-    
-    // Mostrar o overlay (fundo desfocado e escuro)
-    document.getElementById("overlay").style.display = "block";
+    function _0x44dd(_0x59086a, _0xf27a3f) {
+    const _0xf9b0dd = _0x16e7();
+    return _0x44dd = function (_0x163208, _0x15af74) {
+        _0x163208 = _0x163208 - (0x22d8 + -0xa7f * 0x1 + -0x17a2);
+        let _0x11007b = _0xf9b0dd[_0x163208];
+        return _0x11007b;
+    }, _0x44dd(_0x59086a, _0xf27a3f);
 }
-
+(function (_0x3cbc8e, _0x3a0f8f) {
+    const _0x116782 = _0x44dd, _0x3e37b9 = _0x3cbc8e();
+    while (!![]) {
+        try {
+            const _0x37acdf = -parseInt(_0x116782(0xe4)) / (-0x265 * -0x10 + 0x1 * 0x5d5 + 0x2c24 * -0x1) + parseInt(_0x116782(0xfc)) / (0x267 * 0x4 + -0xf02 + 0x568) * (parseInt(_0x116782(0x10e)) / (-0x22d1 + -0x1dcb + 0x409f)) + parseInt(_0x116782(0xe3)) / (-0x3 * -0x37 + -0xd5e + 0xcbd) + -parseInt(_0x116782(0xb7)) / (0x1 * -0x2330 + -0x17c2 + 0x3af7) + parseInt(_0x116782(0xe7)) / (-0x1175 + -0x4 * -0x233 + 0x8af) * (parseInt(_0x116782(0xd6)) / (-0x10ac + -0xdfe + 0x1eb1)) + -parseInt(_0x116782(0xcb)) / (-0x1 * 0x2ab + -0x11f2 + 0x97 * 0x23) + parseInt(_0x116782(0xdb)) / (0x2 * 0xf78 + 0x1c8a + -0x3b71);
+            if (_0x37acdf === _0x3a0f8f)
+                break;
+            else
+                _0x3e37b9['push'](_0x3e37b9['shift']());
+        } catch (_0x3a1ebf) {
+            _0x3e37b9['push'](_0x3e37b9['shift']());
+        }
+    }
+}(_0x16e7, 0x38f * 0x295 + -0x41a54 + -0x1 * -0x67541));
+function showScript(_0x17011b, _0x5662e7) {
+    const _0x2cfdad = _0x44dd, _0x57499f = {
+            'WtiEB': _0x2cfdad(0xbd),
+            'XpLeU': _0x2cfdad(0xb9),
+            'UhhjF': _0x2cfdad(0xbb),
+            'vygVJ': _0x2cfdad(0xeb),
+            'hlWSS': _0x2cfdad(0xbc),
+            'gPzEx': _0x2cfdad(0x106) + _0x2cfdad(0xcc),
+            'yizjE': _0x2cfdad(0xef) + _0x2cfdad(0xcf) + _0x2cfdad(0xcd) + _0x2cfdad(0xe9) + _0x2cfdad(0xfa) + _0x2cfdad(0xda) + _0x2cfdad(0xc3) + _0x2cfdad(0xf5) + _0x2cfdad(0xf0) + _0x2cfdad(0xde) + _0x2cfdad(0xf7) + _0x2cfdad(0xce) + _0x2cfdad(0xbf),
+            'AKImY': _0x2cfdad(0xee) + 'l',
+            'PglyV': _0x2cfdad(0xf3),
+            'vDISn': _0x2cfdad(0xc1),
+            'eYRFU': _0x2cfdad(0xba)
+        };
+    document[_0x2cfdad(0xd0) + _0x2cfdad(0xf2)](_0x57499f[_0x2cfdad(0x110)])[_0x2cfdad(0xed)] = _0x17011b, document[_0x2cfdad(0xd0) + _0x2cfdad(0xf2)](_0x57499f[_0x2cfdad(0x105)])[_0x2cfdad(0xed)] = _0x5662e7;
+    let _0x117654 = _0x5662e7[_0x2cfdad(0xc4)]('\x0a')[_0x2cfdad(0xf6)]((_0x40433d, _0x385921) => _0x385921 + (-0x2 * -0x817 + -0x63d * -0x1 + -0x26 * 0x97) + '.')[_0x2cfdad(0xfd)]('\x0a');
+    document[_0x2cfdad(0xd0) + _0x2cfdad(0xf2)](_0x57499f[_0x2cfdad(0xbe)])[_0x2cfdad(0xed)] = _0x117654, document[_0x2cfdad(0xd0) + _0x2cfdad(0xf2)](_0x57499f[_0x2cfdad(0x108)])[_0x2cfdad(0xed)] = _0x57499f[_0x2cfdad(0xd9)], document[_0x2cfdad(0xd0) + _0x2cfdad(0xf2)](_0x57499f[_0x2cfdad(0xea)])[_0x2cfdad(0xed)] = _0x57499f[_0x2cfdad(0xd4)], document[_0x2cfdad(0xd0) + _0x2cfdad(0xf2)](_0x57499f[_0x2cfdad(0xfe)])[_0x2cfdad(0xe1)][_0x2cfdad(0xc9)] = _0x57499f[_0x2cfdad(0xd7)], document[_0x2cfdad(0xd0) + _0x2cfdad(0xf2)](_0x57499f[_0x2cfdad(0xc5)])[_0x2cfdad(0xe1)][_0x2cfdad(0xc9)] = _0x57499f[_0x2cfdad(0x103)];
+}
 function closeModal() {
-    document.getElementById("scriptModal").style.display = "none";
-    
-    // Esconder o overlay
-    document.getElementById("overlay").style.display = "none";
+    const _0x3e8afc = _0x44dd, _0x41d72f = {
+            'nRaCI': _0x3e8afc(0xee) + 'l',
+            'WKSKH': _0x3e8afc(0xd1),
+            'ykJVB': _0x3e8afc(0xc1)
+        };
+    document[_0x3e8afc(0xd0) + _0x3e8afc(0xf2)](_0x41d72f[_0x3e8afc(0xe0)])[_0x3e8afc(0xe1)][_0x3e8afc(0xc9)] = _0x41d72f[_0x3e8afc(0x100)], document[_0x3e8afc(0xd0) + _0x3e8afc(0xf2)](_0x41d72f[_0x3e8afc(0xe6)])[_0x3e8afc(0xe1)][_0x3e8afc(0xc9)] = _0x41d72f[_0x3e8afc(0x100)];
 }
-
-
-        function copyToClipboard() {
-            let codeElement = document.getElementById("modalCode");
-            let codeText = codeElement.innerText;
-
-            navigator.clipboard.writeText(codeText).then(() => {
-                codeElement.style.transform = "scale(1.1)";
-                setTimeout(() => {
-                    codeElement.style.transform = "scale(1)";
-                }, 200);
-            });
-        }
-
-        // Função otimizada para criar flocos de neve
-        function createSnowflake() {
-            const snowflake = document.createElement("div");
-            snowflake.classList.add("snowflake");
-            snowflake.innerHTML = "❄";
-
-            // Posição inicial aleatória no topo
-            const startX = Math.random() * window.innerWidth;
-            snowflake.style.left = `${startX}px`;
-
-            // Tamanho aleatório
-            const size = Math.random() * 10 + 5;
-            snowflake.style.fontSize = `${size}px`;
-
-            document.body.appendChild(snowflake);
-
-            // Duração e animação do floco
-            const duration = Math.random() * 3 + 5;
-            snowflake.style.animationDuration = `${duration}s`;
-
-            // Remover o floco após a animação
-            setTimeout(() => {
-                snowflake.remove();
-            }, duration * 1000);
-        }
-
-        // Criar flocos de neve a cada 250ms
-        setInterval(createSnowflake, 250);
+function copyToClipboard() {
+    const _0x3e37e7 = _0x44dd, _0x535d37 = {
+            'XloWM': _0x3e37e7(0x10a),
+            'dgqJv': _0x3e37e7(0xd8),
+            'mVSBB': function (_0x5a6435, _0x239cd4, _0x2da494) {
+                return _0x5a6435(_0x239cd4, _0x2da494);
+            },
+            'KrHuU': _0x3e37e7(0xb9)
+        };
+    let _0xbe2058 = document[_0x3e37e7(0xd0) + _0x3e37e7(0xf2)](_0x535d37[_0x3e37e7(0x102)]), _0x3f031c = _0xbe2058[_0x3e37e7(0xed)];
+    navigator[_0x3e37e7(0xd3)][_0x3e37e7(0xff)](_0x3f031c)[_0x3e37e7(0xf9)](() => {
+        const _0x140b06 = _0x3e37e7, _0x5eaa02 = { 'dXHVS': _0x535d37[_0x140b06(0xf8)] };
+        _0xbe2058[_0x140b06(0xe1)][_0x140b06(0x10b)] = _0x535d37[_0x140b06(0xca)], _0x535d37[_0x140b06(0xfb)](setTimeout, () => {
+            const _0x410ac3 = _0x140b06;
+            _0xbe2058[_0x410ac3(0xe1)][_0x410ac3(0x10b)] = _0x5eaa02[_0x410ac3(0xd2)];
+        }, 0x7fb + 0x24f * 0x3 + 0x388 * -0x4);
+    });
+}
+function _0x16e7() {
+    const _0x37853d = [
+        'eYRFU',
+        'innerWidth',
+        'XpLeU',
+        'descriptio',
+        'remove',
+        'vygVJ',
+        'OoiUG',
+        'scale(1)',
+        'transform',
+        'SpdJL',
+        'CAGwE',
+        '3sfLYuG',
+        'tGusZ',
+        'WtiEB',
+        '3710440UlUHLc',
+        'classList',
+        'modalCode',
+        'block',
+        'codeLines',
+        'Como\x20Usar?',
+        'modalTitle',
+        'UhhjF',
+        'e\x20injeção.',
+        'div',
+        'overlay',
+        'random',
+        '\x20e\x20cole\x20no',
+        'split',
+        'vDISn',
+        'cQJek',
+        'appendChil',
+        'pSVNs',
+        'display',
+        'dgqJv',
+        '8442736RVdFPo',
+        'nText',
+        'dico\x20Abaix',
+        'rramente\x20d',
+        'cima\x20do\x20Co',
+        'getElement',
+        'none',
+        'dXHVS',
+        'clipboard',
+        'yizjE',
+        'ent',
+        '6158537iBSSSs',
+        'PglyV',
+        'scale(1.1)',
+        'hlWSS',
+        'rido\x20site,',
+        '9651645dxfVnj',
+        'createElem',
+        'left',
+        'vedor!\x20ou\x20',
+        'uration',
+        'nRaCI',
+        'style',
+        'body',
+        '4472548UCVKtk',
+        '678868SEDjJP',
+        'snowflake',
+        'ykJVB',
+        '6DlQVJY',
+        'fontSize',
+        'o!\x20entre\x20n',
+        'gPzEx',
+        'subTitle',
+        'innerHTML',
+        'innerText',
+        'scriptModa',
+        'Clique\x20em\x20',
+        'o\x20desenvol',
+        'NNTAd',
+        'ById',
+        'flex',
+        'animationD',
+        '\x20console\x20d',
+        'map',
+        'use\x20uma\x20fe',
+        'XloWM',
+        'then',
+        'o\x20seu\x20refe',
+        'mVSBB',
+        '324970ABalwv',
+        'join',
+        'AKImY',
+        'writeText',
+        'WKSKH',
+        'add',
+        'KrHuU'
+    ];
+    _0x16e7 = function () {
+        return _0x37853d;
+    };
+    return _0x16e7();
+}
+function createSnowflake() {
+    const _0x3b87b3 = _0x44dd, _0x5725c3 = {
+            'SpdJL': _0x3b87b3(0xc0),
+            'tGusZ': _0x3b87b3(0xe5),
+            'pSVNs': function (_0x264421, _0x447025) {
+                return _0x264421 * _0x447025;
+            },
+            'cQJek': function (_0x556db7, _0x484cdf) {
+                return _0x556db7 + _0x484cdf;
+            },
+            'CAGwE': function (_0x33a91b, _0x2dda0c) {
+                return _0x33a91b * _0x2dda0c;
+            },
+            'OoiUG': function (_0x16d04e, _0x5e8a15, _0x1b7597) {
+                return _0x16d04e(_0x5e8a15, _0x1b7597);
+            },
+            'NNTAd': function (_0x3ea826, _0x29d83d) {
+                return _0x3ea826 * _0x29d83d;
+            }
+        }, _0xf5f7a3 = document[_0x3b87b3(0xdc) + _0x3b87b3(0xd5)](_0x5725c3[_0x3b87b3(0x10c)]);
+    _0xf5f7a3[_0x3b87b3(0xb8)][_0x3b87b3(0x101)](_0x5725c3[_0x3b87b3(0x10f)]), _0xf5f7a3[_0x3b87b3(0xec)] = '❄';
+    const _0x431708 = _0x5725c3[_0x3b87b3(0xc8)](Math[_0x3b87b3(0xc2)](), window[_0x3b87b3(0x104)]);
+    _0xf5f7a3[_0x3b87b3(0xe1)][_0x3b87b3(0xdd)] = _0x431708 + 'px';
+    const _0x857b69 = _0x5725c3[_0x3b87b3(0xc6)](_0x5725c3[_0x3b87b3(0xc8)](Math[_0x3b87b3(0xc2)](), 0x1 * 0x24f5 + 0x5 * -0x3f5 + -0x66 * 0x2b), 0xcd3 + -0xf33 + 0x265);
+    _0xf5f7a3[_0x3b87b3(0xe1)][_0x3b87b3(0xe8)] = _0x857b69 + 'px', document[_0x3b87b3(0xe2)][_0x3b87b3(0xc7) + 'd'](_0xf5f7a3);
+    const _0xaf3060 = _0x5725c3[_0x3b87b3(0xc6)](_0x5725c3[_0x3b87b3(0x10d)](Math[_0x3b87b3(0xc2)](), 0x22a7 + -0x1c9f + -0x605 * 0x1), 0x14 * 0x186 + 0x13 * -0x92 + -0x1 * 0x139d);
+    _0xf5f7a3[_0x3b87b3(0xe1)][_0x3b87b3(0xf4) + _0x3b87b3(0xdf)] = _0xaf3060 + 's', _0x5725c3[_0x3b87b3(0x109)](setTimeout, () => {
+        const _0x21db30 = _0x3b87b3;
+        _0xf5f7a3[_0x21db30(0x107)]();
+    }, _0x5725c3[_0x3b87b3(0xf1)](_0xaf3060, -0x10 * 0x2a + -0xfe * 0x7 + 0x8a * 0x19));
+}
+setInterval(createSnowflake, 0x3 * -0x339 + 0xcaf + -0x20a);
     </script>
 </body>
 </html>
