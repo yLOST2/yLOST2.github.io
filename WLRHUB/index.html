@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WLRHUB - Biblioteca de Scripts Privada</title>
+    <script src="protect.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #0f0f0f, #1c1c1c);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            text-align: center;
+            overflow: hidden; /* Para a neve não ultrapassar os limites da tela */
+        }
+
+        .snowflake {
+            position: fixed;
+            top: -10px;
+            font-size: 8px;
+            color: white;
+            opacity: 0.8;
+            animation: snowfall linear infinite;
+        }
+
+        @keyframes snowfall {
+            0% {
+                transform: translateX(0) translateY(0);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(0) translateY(100vh);
+                opacity: 0;
+            }
+        }
+
+        h1 {
+            font-size: 2.5em;
+            text-shadow: 0px 0px 10px white;
+            margin-bottom: 40px;
+            animation: fadeIn 1.5s ease-in-out, float 2.5s infinite ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+            width: 80%;
+            max-width: 600px;
+            backdrop-filter: blur(10px);
+            animation: slideIn 1s ease-in-out;
+            z-index: 1;
+        }
+
+        .script-box {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 15px;
+    margin-top: 15px;
+    border-radius: 5px;
+    text-align: left;
+    overflow-x: auto;
+    cursor: pointer;
+    transition: 0.3s;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;  /* Organiza o conteúdo em coluna */
+}
+
+.script-box:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Adicionando a classe para a descrição */
+.script-box p {
+    font-size: 14px; /* Pode ajustar o tamanho da fonte conforme necessário */
+    color: #dddddd;
+    margin-top: 10px;
+    word-wrap: break-word;  /* Permite quebra de linha no conteúdo */
+    overflow-wrap: break-word;  /* Outra propriedade para quebra de linha */
+    white-space: normal;  /* Permite a quebra de linha e evita que o texto fique em uma única linha */
+    text-overflow: ellipsis;  /* Adiciona '...' caso o texto ultrapasse o limite da caixa */
+    display: -webkit-box;
+    -webkit-line-clamp: 3; /* Limita o número de linhas visíveis a 3 (ajustável conforme necessário) */
+    -webkit-box-orient: vertical;
+    overflow: hidden;  /* Esconde o conteúdo que ultrapassa o limite */
+}
+
+
+        .modal {
+    position: fixed;
+    top: 13%;  /* 13% de distância do topo */
+    left: 50%;
+    transform: translateX(-50%);  /* Mantém o modal centralizado horizontalmente */
+    width: 75%;
+    height: auto;  /* Ajusta a altura do modal conforme o conteúdo */
+    max-height: 80vh;  /* Define uma altura máxima (80% da altura da tela) */
+    background: #1e1e1e;
+    border: 1px solid #333;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    display: none;
+    flex-direction: column;
+    padding: 15px;
+    z-index: 3;
+    overflow-y: auto; /* Permite rolagem caso o conteúdo ultrapasse a altura máxima */
+}
+
+.modal-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #333;
+    padding-bottom: 5px;
+}
+
+.sub-title {
+    font-size: 1.2em;
+    font-weight: normal;
+    color: #dddddd;
+    margin-top: 10px;
+}
+
+.description {
+    font-size: 1em;
+    color: #888;
+    margin-top: 5px;
+}
+
+
+        .code-container {
+            width: 100%;
+            height: 15%;  /* Altura de 15% do modal */
+            background: #252526;
+            border: 1px solid #444;
+            border-radius: 5px;
+            display: flex;
+            overflow: hidden;
+            font-family: "Courier New", monospace;
+            margin-top: 20px;
+        }
+
+        .code-lines {
+            width: 50px;
+            padding: 10px 5px;
+            background: #2d2d2d;
+            text-align: right;
+            color: #888;
+            font-size: 14px;
+            font-family: "Courier New", monospace;
+            user-select: none;
+            border-right: 1px solid #444;
+        }
+
+        .code {
+            flex-grow: 1;
+            padding: 10px;
+            font-size: 14px;
+            line-height: 1.5;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+            cursor: text;
+            outline: none;
+            border: none;
+            background: transparent;
+            color: #d4d4d4;
+            overflow-y: auto;
+            height: 100%;
+        }
+
+        .close-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background: #0078D4;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+            width: 110px;
+            align-self: center;
+        }
+
+        .close-btn:hover {
+            background: #005a9e;
+        }
+		
+		/* A camada de fundo com o efeito de desfoque e escurecimento */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.82);  /* 82% de transparência */
+    backdrop-filter: blur(10px);  /* Aplica o desfoque no fundo */
+    display: none;  /* Inicialmente, está escondida */
+    z-index: 2;
+}
+
+
+    </style>
+</head>
+<body>
+    <h1>📜 WLRHUB 📜</h1>
+    <div class="container">
+        <p>Obtenha os Scripts abaixo:</p>
+        
+        <div class="script-box" onclick="showScript('Quizziz - Responder Perguntas Simples!', `(async () => eval(await (await fetch('https://yLOST2.github.io/WLRHUB/sis/quizziz/s_gemini.js')).text()))();`)">
+    <h2>Quizziz [v0.3]</h2>
+    <p>Reponda perguntas simples dos "Quizziz.com".</p>
+</div>
+
+<div class="script-box" onclick="showScript('Redação Paraná [Em Dev!]', `console.log('em dev!!')`)">
+    <h2>Redação Paraná</h2>
+    <p>Escreva um Texto Personalizado na Redação Paraná.</p>
+</div>
+
+<div class="script-box" onclick="showScript('Leia Paraná - Responda perguntas dos Livros!', `(async () => eval(await (await fetch('https://yLOST2.github.io/WLRHUB/sis/leiapr/s_leiapr.js')).text()))();`)">
+    <h2>Leia Paraná [v0.6]</h2>
+    <p>Responda as perguntas dos livros da plataforma "Leiaparana.odilo.us".</p>
+</div>
+
+    </div>
+	<div class="overlay" id="overlay"></div>
+    <div class="modal" id="scriptModal">
+        <div class="modal-title" id="modalTitle"></div>
+        <div class="sub-title" id="subTitle"></div>
+        <p class="description" id="descriptionText"></p>
+        <div class="code-container">
+            <div class="code-lines" id="codeLines"></div>
+            <pre class="code" id="modalCode" onclick="copyToClipboard()"></pre>
+        </div>
+        <button class="close-btn" onclick="closeModal()">Fechar</button>
+    </div>
+
+    <script>
+        function showScript(title, code) {
+    document.getElementById("modalTitle").innerText = title;
+    document.getElementById("modalCode").innerText = code;
+    
+    let lines = code.split('\n').map((_, index) => (index + 1) + '.').join('\n');
+    document.getElementById("codeLines").innerText = lines;
+    
+    // Definindo subtítulo e descrição
+    document.getElementById("subTitle").innerText = "Como Usar?";
+    document.getElementById("descriptionText").innerText = "Clique em cima do Codico Abaixo! entre no seu referido site, e cole no console do desenvolvedor! ou use uma ferramente de injeção.";
+    
+    // Mostrar o modal
+    document.getElementById("scriptModal").style.display = "flex";
+    
+    // Mostrar o overlay (fundo desfocado e escuro)
+    document.getElementById("overlay").style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById("scriptModal").style.display = "none";
+    
+    // Esconder o overlay
+    document.getElementById("overlay").style.display = "none";
+}
+
+
+        function copyToClipboard() {
+            let codeElement = document.getElementById("modalCode");
+            let codeText = codeElement.innerText;
+
+            navigator.clipboard.writeText(codeText).then(() => {
+                codeElement.style.transform = "scale(1.1)";
+                setTimeout(() => {
+                    codeElement.style.transform = "scale(1)";
+                }, 200);
+            });
+        }
+
+        // Função otimizada para criar flocos de neve
+        function createSnowflake() {
+            const snowflake = document.createElement("div");
+            snowflake.classList.add("snowflake");
+            snowflake.innerHTML = "❄";
+
+            // Posição inicial aleatória no topo
+            const startX = Math.random() * window.innerWidth;
+            snowflake.style.left = `${startX}px`;
+
+            // Tamanho aleatório
+            const size = Math.random() * 10 + 5;
+            snowflake.style.fontSize = `${size}px`;
+
+            document.body.appendChild(snowflake);
+
+            // Duração e animação do floco
+            const duration = Math.random() * 3 + 5;
+            snowflake.style.animationDuration = `${duration}s`;
+
+            // Remover o floco após a animação
+            setTimeout(() => {
+                snowflake.remove();
+            }, duration * 1000);
+        }
+
+        // Criar flocos de neve a cada 250ms
+        setInterval(createSnowflake, 250);
+    </script>
+</body>
+</html>
