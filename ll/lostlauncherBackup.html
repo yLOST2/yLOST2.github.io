@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Launcher</title>
+    <style>
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+/* Fonte personalizada */
+@font-face {
+    font-family: 'Mpequena';
+    src: url('fonts/font_pequena.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Reset padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Orbitron', sans-serif;
+}
+
+body {
+    background: #0a0a0a;
+    color: #fff;
+    text-align: center;
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    width: 100%;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 10px rgba(0, 255, 0, 0.3);
+    position: fixed;
+    z-index: 1000;
+}
+
+header h1 {
+    font-size: 4vw; /* Usa 4% da largura da tela */
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    background: linear-gradient(90deg, #4facfe, #00ff00);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Container */
+.container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 5vw; /* Ajusta o padding com base na largura da tela */
+    background: linear-gradient(135deg, #001a00, #004d00);
+    animation: fade-in 1s ease-in-out;
+}
+
+/* Texto principal */
+.texto {
+    width: 50%;
+    text-align: left;
+    font-size: 10vh; /* 10% da altura da tela */
+    font-weight: bold;
+    text-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+}
+
+.texto span {
+    color: #00ff00;
+    text-decoration: underline;
+    display: inline-block;
+    animation: shake 0.2s infinite alternate ease-in-out;
+}
+
+/* Imagem */
+.imagem {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.imagem img {
+    width: 85%;
+    max-width: auto;
+    animation: float 3s infinite alternate ease-in-out;
+    filter: drop-shadow(0 0 15px #00ff00);
+    transition: opacity 2s ease-in-out, filter 2s ease-in-out;
+}
+
+.imagem img.hidden {
+    opacity: 0;
+    filter: blur(10px);
+}
+
+/* Painel de informações */
+.painel-info {
+    width: 100%;
+    height: 50vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5vw;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+}
+
+/* Texto dentro do painel */
+.info-texto {
+    width: 50%;
+    text-align: left;
+    font-size: 3vw; /* Usa 3% da largura da tela */
+}
+
+.info-texto h2 {
+    font-size: 4vw; /* Usa 4% da largura da tela */
+    color: #228b22;
+}
+
+.info-texto p,
+.copyright {
+    font-family: 'Mpequena', sans-serif;
+    font-size: 1.5vw; /* Tamanho dinâmico */
+    color: #ddd;
+    margin-top: 5px;
+}
+
+/* Frases de destaque */
+.info-frases {
+    width: 50%;
+    text-align: right;
+    font-size: 3vw; /* Tamanho dinâmico */
+}
+
+/* Copyright */
+.copyright {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    position: relative; /* Faz com que o copyright esteja no fluxo normal do layout */
+    bottom: 0; /* Garantir que ele esteja no fundo, relativo à última div */
+    width: 100%; /* Ocupa toda a largura da tela */
+    text-align: center;
+    color: #fff;
+    margin-top: 40px; /* Dá um pequeno espaço acima do copyright */
+}
+
+/* Estilo do botão de download */
+.download-button {
+    position: fixed;
+    bottom: 10px;
+    right: 1.6%; /* Posiciona no canto inferior direito */
+    padding: 10px 20px;
+    background-color: #00ff00; /* Cor de fundo verde */
+    color: #fff;
+    font-size: 2vw; /* Tamanho dinâmico */
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px; /* Espaço entre a imagem e o texto */
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0, 255, 0, 0.5);
+    transition: background-color 0.3s ease;
+    animation: zoom-in-out 2s infinite alternate ease-in-out; /* Animação de zoom */
+}
+
+/* Estilo da imagem dentro do botão */
+.button-icon {
+    width: 3vh; /* Ajuste o tamanho da imagem */
+    height: auto;
+}
+
+/* Efeito de hover no botão */
+.download-button:hover {
+    background-color: #009900; /* Cor mais escura quando o botão for hover */
+}
+
+/* Animação de zoom */
+@keyframes zoom-in-out {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Container inferior */
+.container_baixo {
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: space-between;
+    padding: 5vw;
+    background: linear-gradient(135deg, #001a00, #003300); /* Cor mais escura para contraste */
+    animation: fade-in 1s ease-in-out;
+}
+
+/* Estilo do container dos requisitos */
+.requisitos {
+    width: 40%;
+    height: auto;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.8); /* Aumentei a opacidade para um contraste maior */
+    border-radius: 15px; /* Borda mais suave */
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* Sombra mais pronunciada */
+    color: #ddd;
+    text-align: left;
+    transition: transform 0.3s ease; /* Efeito de transição ao passar o mouse */
+}
+
+.requisitos h2 {
+    font-size: 4vw; /* Tamanho dinâmico */
+    color: #93bf85;
+    margin-bottom: 15px;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.requisitos p {
+    font-size: 1.5vw; /* Tamanho dinâmico */
+    margin: 12px 0;
+    line-height: 1.6; /* Aumentei o espaçamento entre linhas para melhorar a legibilidade */
+}
+
+/* Estilo do container das frases de destaque */
+.frases-destaque {
+    width: 50%;
+    height: 100%; /* Garante que a altura ocupe todo o espaço disponível */
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+    color: #ddd;
+    text-align: center;
+    display: flex; /* Usando flexbox para alinhamento */
+    flex-direction: column; /* Para alinhar os itens em coluna */
+    justify-content: center; /* Centraliza verticalmente */
+    align-items: center; /* Centraliza horizontalmente */
+    transition: transform 0.3s ease;
+}
+
+.frase {
+    font-size: 3vw; /* Tamanho dinâmico */
+    font-weight: bold;
+    color: #00ff00;
+    margin: 15px 0;
+}
+
+/* Efeito de hover para os containers */
+.requisitos:hover, .frases-destaque:hover {
+    transform: scale(1.05); /* Aumenta ligeiramente o tamanho ao passar o mouse */
+}
+
+/* Efeitos de fade-in */
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Animações */
+@keyframes shake {
+    0% { transform: translateX(-2px); }
+    100% { transform: translateX(2px); }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    100% { transform: translateY(10px); }
+}
+
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes zoom-in-out {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(1); }
+}
+
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>LOST LAUNCHER</h1>
+    </header>
+
+    <div class="container">
+        <div class="texto">
+            <p>Ainda não somos o MELHOR, más já <span>INOVAMOS</span>.</p>
+        </div>
+        <div class="imagem">
+            <img id="imagem-central" src="img/icone.png" alt="Imagem do Lost Launcher">
+        </div>
+    </div>
+
+    <div class="painel-info">
+        <div class="info-texto">
+            <h2>Sobre o Lost Launcher</h2>
+            <p>O Lost Launcher foi criado por um adolescente no final de 2021, utilizando a linguagem VB.NET, e desenvolveu um sistema de inicialização único, com o objetivo de oferecer a melhor performance para todos os dispositivos.</p>        
+		</div>
+        <div class="info-frases">
+            <p>✅ Rápido e Otimizado</p>
+            <p>✅ Interface leve</p>
+            <p>✅ Atualizações regulares</p>
+        </div>
+    </div>
+	<div class="container_baixo">
+		<!-- Container inferior -->
+		<div class="container_baixo">
+			<!-- Container dos requisitos mínimos -->
+			<div class="requisitos">
+				<h2>Requisitos Reco.</h2>
+				<p><strong>RAM:</strong> 2GB</p>
+				<p><strong>Processador:</strong> i3 Intel | 1.50 GHz</p>
+				<p><strong>Placa de Vídeo:</strong> Qualquer</p>
+				<p><strong>HD/SSD:</strong> ~130MB</p>
+			</div>
+			
+			<!-- Container das frases de destaque -->
+			<div class="frases-destaque">
+				<p class="frase">+74% FPS</p>
+				<p class="frase">-37% LAG</p>
+				<p class="frase">100% Feito para VOCÊ!!!</p>
+			</div>
+		</div>
+
+	</div>
+
+    <!-- Copyright -->
+    <div class="copyright">
+        <p>&copy; 2025 Lost Launcher. Todos os direitos reservados.</p>
+    </div>
+
+
+<!-- Botão de Download com imagem -->
+<button id="downloadButton" class="download-button">
+    <img src="img/discordICO.png" alt="Download" class="button-icon">
+    Download
+</button>
+
+
+
+<script>
+    document.getElementById('downloadButton').addEventListener('click', function() {
+        window.location.href = 'https://discord.gg/Xdb98UYPmV';
+    });
+
+    const imagens = ["img/icone.png", "img/h1/print1.png"];
+    let index = 0;
+    const imgElement = document.getElementById("imagem-central");
+
+    function trocarImagem() {
+        imgElement.style.filter = "blur(20px)";
+        imgElement.style.opacity = "0";
+
+        setTimeout(() => {
+            index = (index + 1) % imagens.length;
+            imgElement.src = imagens[index];
+            imgElement.style.filter = "blur(0px)";
+            imgElement.style.opacity = "1";
+        }, 1600); // Tempo da transição (2s)
+    }
+
+    setInterval(trocarImagem, 7000); // Troca a cada 6 segundos
+</script>
+
+</body>
+</html>

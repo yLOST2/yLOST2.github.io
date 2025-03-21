@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lost Launcher</title>
+    <style>
+@import url(https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap);.frase,.texto{font-weight:700}@font-face{font-family:Mpequena;src:url('fonts/font_pequena.ttf') format('truetype');font-weight:400;font-style:normal}*{margin:0;padding:0;box-sizing:border-box;font-family:Orbitron,sans-serif}body{background:#0a0a0a;color:#fff;text-align:center;overflow-x:hidden}header{background:rgba(0,0,0,.8);padding:20px;width:100%;top:0;left:0;box-shadow:0 4px 10px rgba(0,255,0,.3);position:fixed;z-index:1000}header h1{font-size:4vw;text-transform:uppercase;letter-spacing:3px;background:linear-gradient(90deg,#4facfe,#0f0);-webkit-background-clip:text;-webkit-text-fill-color:transparent}.container{width:100%;height:100vh;display:flex;align-items:center;justify-content:center;gap:20px;padding:5vw;background:linear-gradient(135deg,#001a00,#004d00);animation:1s ease-in-out fade-in}.imagem,.painel-info{align-items:center;display:flex}.texto{width:50%;text-align:left;font-size:10vh;text-shadow:0 0 10px rgba(0,255,0,.7)}.texto span{color:#0f0;text-decoration:underline;display:inline-block;animation:.2s ease-in-out infinite alternate shake}.imagem{width:50%;justify-content:center}.imagem img{width:85%;max-width:auto;animation:3s ease-in-out infinite alternate float;filter:drop-shadow(0 0 15px #00ff00);transition:opacity 2s ease-in-out,filter 2s ease-in-out}.imagem img.hidden{opacity:0;filter:blur(10px)}.painel-info{width:100%;height:50vh;justify-content:space-between;padding:5vw;background:rgba(255,255,255,.1);backdrop-filter:blur(10px)}.info-texto{width:50%;text-align:left;font-size:3vw}.info-texto h2{font-size:4vw;color:#228b22}.copyright,.info-texto p{font-family:Mpequena,sans-serif;font-size:1.5vw;color:#ddd;margin-top:5px}.info-frases{width:50%;text-align:right;font-size:3vw}.copyright{background-color:rgba(0,0,0,.8);padding:10px;position:relative;bottom:0;width:100%;text-align:center;color:#fff;margin-top:40px}.download-button{position:fixed;bottom:10px;right:1.6%;padding:10px 20px;background-color:#0f0;color:#fff;font-size:2vw;font-weight:700;border:none;border-radius:5px;display:flex;align-items:center;justify-content:center;gap:10px;cursor:pointer;box-shadow:0 4px 10px rgba(0,255,0,.5);transition:background-color .3s;animation:2s ease-in-out infinite alternate zoom-in-out}.button-icon{width:3vh;height:auto}.download-button:hover{background-color:#090}@keyframes zoom-in-out{0%,100%{transform:scale(1)}50%{transform:scale(1.02)}}.container_baixo{width:100%;height:auto;display:flex;justify-content:space-between;padding:5vw;background:linear-gradient(135deg,#001a00,#030);animation:1s ease-in-out fade-in}.frases-destaque,.requisitos{padding:25px;background:rgba(0,0,0,.8);border-radius:15px;box-shadow:0 0 20px rgba(0,255,0,.5);color:#ddd;transition:transform .3s}.requisitos{width:40%;height:auto;text-align:left}.requisitos h2{font-size:4vw;color:#93bf85;margin-bottom:15px;font-family:Orbitron,sans-serif}.requisitos p{font-size:1.5vw;margin:12px 0;line-height:1.6}.frases-destaque{width:50%;height:100%;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center}.frase{font-size:3vw;color:#0f0;margin:15px 0}.frases-destaque:hover,.requisitos:hover{transform:scale(1.05)}@keyframes shake{0%{transform:translateX(-2px)}100%{transform:translateX(2px)}}@keyframes float{0%{transform:translateY(0)}100%{transform:translateY(10px)}}@keyframes fade-in{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:translateY(0)}}@keyframes zoom-in-out{0%,100%{transform:scale(1)}50%{transform:scale(1.1)}}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>LOST LAUNCHER</h1>
+    </header>
+    <div class="container">
+        <div class="texto">
+            <p>Ainda não somos o MELHOR, más já <span>INOVAMOS</span>.</p>
+        </div>
+        <div class="imagem">
+            <img id="imagem-central" src="res-lostlauncher/img/icone.png" alt="Imagem do Lost Launcher">
+        </div>
+    </div>
+    <div class="painel-info">
+        <div class="info-texto">
+            <h2>Sobre o Lost Launcher</h2>
+            <p>O Lost Launcher foi criado por um adolescente no final de 2021, utilizando a linguagem VB.NET, e desenvolveu um sistema de inicialização único, com o objetivo de oferecer a melhor performance para todos os dispositivos.</p>        
+		</div>
+        <div class="info-frases">
+            <p>✅ Rápido e Otimizado</p>
+            <p>✅ Interface leve</p>
+            <p>✅ Atualizações regulares</p>
+        </div>
+    </div>
+	<div class="container_baixo">
+		<div class="container_baixo">
+			<div class="requisitos">
+				<h2>Requisitos Reco.</h2>
+				<p><strong>RAM:</strong> 2GB</p>
+				<p><strong>Processador:</strong> i3 Intel | 1.50 GHz</p>
+				<p><strong>Placa de Vídeo:</strong> Qualquer</p>
+				<p><strong>HD/SSD:</strong> ~130MB</p>
+			</div>
+			<div class="frases-destaque">
+				<p class="frase">+74% FPS</p>
+				<p class="frase">-37% LAG</p>
+				<p class="frase">100% Feito para VOCÊ!!!</p>
+			</div>
+		</div>
+
+	</div>
+    <div class="copyright">
+        <p>&copy; 2025 Lost Launcher. Todos os direitos reservados.</p>
+    </div>
+<button id="downloadButton" class="download-button">
+    <img src="res-lostlauncher/img/discordICO.png" alt="Download" class="button-icon">
+    Download
+</button>
+
+
+
+<script>
+    document.getElementById('downloadButton').addEventListener('click', function() {
+        window.location.href = 'https://discord.gg/Xdb98UYPmV';
+    });
+
+    const imagens = ["res-lostlauncher/img/icone.png", "res-lostlauncher/img/h1/print1.png"];
+    let index = 0;
+    const imgElement = document.getElementById("imagem-central");
+
+    function trocarImagem() {
+        imgElement.style.filter = "blur(20px)";
+        imgElement.style.opacity = "0";
+
+        setTimeout(() => {
+            index = (index + 1) % imagens.length;
+            imgElement.src = imagens[index];
+            imgElement.style.filter = "blur(0px)";
+            imgElement.style.opacity = "1";
+        }, 1600); 
+    }
+
+    setInterval(trocarImagem, 7000); 
+</script>
+
+</body>
+</html>
