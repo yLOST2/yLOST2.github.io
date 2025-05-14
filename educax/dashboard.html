@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Palarm | Dashboard</title>
+  <link rel="stylesheet" href="dashboard/styles.css">
+  <script src="dashboard/script.js"></script>
+  <link rel="icon" href="ico.png" type="image/png">
+    <script src="js-utils/protec.js"></script>
+  <script src="js-utils/nobot.js"></script>
+</head>
+<body>
+
+  <!-- Loader que ficará visível enquanto o conteúdo está sendo carregado -->
+  <div id="loaderContainer" class="loader-overlay">
+    <div class="loader">
+      <p>Carregando..</p>
+    </div>
+  </div>
+
+  <!-- Conteúdo principal -->
+  <main id="mainContent" style="display: none;">
+    <header class="header">
+      <div class="logo">Palarm</div>
+    </header>
+
+    <!-- Perfil Fixo no canto inferior direito -->
+    <div class="user-box">
+      <img src="dashboard/img/ft_perfio_padrao.png" alt="Perfil">
+      <span class="username">conta_referente</span>
+    </div>
+
+    <!-- Painel principal -->
+    <div class="main-panel">
+      <div class="actions">
+        <button id="createKeyBtn" class="btn create-key">
+          <span>➕</span> Criar Chave
+        </button>
+        <button class="btn reload">
+          🔄
+        </button>
+      </div>
+
+      <div id="keysContainer" class="keys-container">
+        <p>Nenhuma chave ativa.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- Painel flutuante de criação de chave -->
+  <div id="overlay" class="overlay hidden">
+    <div class="modal">
+      <input type="text" id="searchKeyInput" placeholder="Pesquisar tipo de chaves...">
+    </div>
+  </div>
+
+  <div id="keyDetailModal" class="overlay hidden">
+    <div class="modal key-detail-modal">
+      <button class="close-btn" title="Fechar">&times;</button>
+      <div class="chave-block">
+        <label>Chave:</label>
+        <div class="chave-copy" id="modalChaveValor"></div>
+      </div>
+      <div class="url-block">
+        <label>URL:</label>
+        <div class="url-copy" id="modalChaveUrl"></div>
+        <button class="copy-btn" data-copy="url">Copiar URL</button>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>

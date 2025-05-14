@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edulcax | Entrada</title>
+  <link rel="stylesheet" href="login/style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+  <link rel="icon" href="ico.png" type="image/png">
+  <script src="js-utils/protec.js"></script>
+  <script src="js-utils/nobot.js"></script>
+</head>
+<body>
+  <header class="header">
+    <div class="logo">Edulcax</div>
+  </header>
+  <main>
+    <section class="login-container">
+      <form class="login-form" autocomplete="off">
+        <h1>Entrar | Cadastrar-se</h1>
+        <div class="form-group">
+          <label for="user">E-mail</label>
+          <input type="text" id="user" name="user" required autocomplete="username">
+        </div>
+        <div class="form-group">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" name="senha" required autocomplete="current-password">
+        </div>
+        <div class="form-msg" id="msg"></div>
+        <button type="submit" class="login-btn">Entrar</button>
+        <div class="extra-links">
+          <span>Ao continuar você está concordando com os nossos <a href="../politicas/termos.html" tabindex="-1">Termos De Uso</a> e <a href="../politicas/privacidade.html" tabindex="-1">Politica de Privacidade.</a>.</span>
+        </div>
+      </form>
+    </section>
+  </main>
+  <footer class="footer">
+    <p>© 2025 Edulcax - Lost Invections</p>
+  </footer>
+  <script src="login/script.js"></script>
+</body>
+</html>

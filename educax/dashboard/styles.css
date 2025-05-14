@@ -1,0 +1,385 @@
+/* Reset básico */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  background: #f4f7ff;
+  color: #222;
+}
+
+.header {
+  background: #111;
+  color: #fff;
+  padding: 1.2rem 2rem;
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-shadow: 0 2px 12px #0005;
+  box-shadow: 0 4px 14px #0002;
+}
+
+.logo {
+  letter-spacing: 1px;
+}
+
+/* Detalhe da CHAVE - Modal glassmorphism top */
+.key-detail-modal {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(18px) saturate(120%);
+  box-shadow: 0 16px 48px #007bff22;
+  border: 2px solid #eee;
+  position: relative;
+  margin: 0 auto;
+  max-width: 425px;
+}
+.key-detail-modal label {
+  display: block;
+  font-weight: 600;
+  color: #007bff;
+  margin-bottom: 2px;
+  font-size: 1.1em;
+}
+.key-detail-modal .chave-block,
+.key-detail-modal .url-block {
+  margin-bottom: 1.8rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f0f0f0;
+}
+.key-detail-modal .url-block {
+  margin-bottom: 0.4rem;
+  border-bottom: none;
+}
+#modalChaveValor, #modalChaveUrl {
+  background: #f6f8ff;
+  color: #353c52;
+  padding: 0.55em 1em;
+  border-radius: 8px;
+  font-size: 0.98em;
+  margin-top: 0.16em;
+  margin-bottom: 0.6em;
+  word-break: break-all;
+  font-family: "JetBrains Mono", "Fira Mono", monospace;
+  letter-spacing: 0.2px;
+  cursor: pointer;
+  user-select: all;
+  transition: background 0.2s;
+}
+#modalChaveValor.copied, #modalChaveUrl.copied {
+  background: #c7f9e5;
+  color: #22856d;
+  box-shadow: 0 2px 14px #67e0af48;
+}
+.key-detail-modal .copy-btn {
+  display: inline-block;
+  background: linear-gradient(90deg, #00c3ff 60%, #007bff 100%);
+  color: #fff;
+  border: none;
+  border-radius: 7px;
+  font-weight: bold;
+  padding: 0.5em 1.15em;
+  margin-top: 0.15em;
+  margin-bottom: 0.2em;
+  cursor: pointer;
+  box-shadow: 0 4px 14px #44bbff11;
+  font-size: 1em;
+  transition: all 0.18s;
+}
+.key-detail-modal .copy-btn:hover {
+  filter: brightness(1.07) saturate(1.18);
+  box-shadow: 0 4px 22px #00c3ff44;
+  transform: scale(1.025);
+}
+.key-detail-modal .close-btn {
+  position: absolute;
+  top: 0.7em;
+  right: 1em;
+  font-size: 1.8em;
+  color: #007bff;
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: color 0.18s;
+  font-weight: 900;
+  z-index: 2;
+}
+.key-detail-modal .close-btn:hover {
+  color: #f00c37;
+}
+
+/* Efeito de cópia animado */
+@keyframes popCopy {
+  0% { box-shadow: 0 0 0 #00c3ff00; }
+  33% { box-shadow: 0 0 24px #00ffc944; }
+  100% { box-shadow: 0 0 0 #00c3ff00; }
+}
+#modalChaveValor.copied, #modalChaveUrl.copied {
+  animation: popCopy 0.7s;
+}
+
+.user-box {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border-radius: 20px;
+  padding: 0.6rem 1rem;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 18px #0002;
+  z-index: 999;
+  animation: slideInRight 0.7s cubic-bezier(.23,.6,.21,1.01); /* ANIMAÇÃO MODIFICADA */
+}
+
+/* Nova animação para entrada lateral */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(80px);  /* Vem mais para dentro e suavemente */
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+.no-results {
+  padding: 20px;
+  text-align: center;
+  color: #999;
+  font-style: italic;
+}
+
+
+.keys-container p {
+  text-align: center;
+  color: #999;
+  font-size: 1.1rem;
+  margin-top: 40px;
+  animation: fadeIn 0.5s ease;
+  font-style: italic;
+  user-select: none;
+}
+
+/* Suaviza a entrada do texto */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+.user-box img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 0.7rem;
+}
+
+.username {
+  font-weight: bold;
+  color: #333;
+}
+
+.main-panel {
+  padding: 2rem;
+  max-width: 90%;
+  margin: auto;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.btn {
+  padding: 0.8rem 1.5rem;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: bold;
+  box-shadow: 0 4px 12px #0001;
+  transition: all 0.2s ease;
+}
+
+.create-key {
+  background: linear-gradient(120deg, #007bff, #00c3ff);
+  color: white;
+}
+
+.create-key:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 16px #00c3ff44;
+}
+
+.reload {
+  background: #fff;
+  border: 2px solid #ccc;
+}
+
+.reload:hover {
+  transform: scale(1.05);
+}
+
+.keys-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(255,255,255,0.9); /* branco translúcido */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.loader::before {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 50px;
+  border: 6px solid #007bff; /* azul */
+  border-top: 6px solid #fff;
+  border-radius: 50%;
+  animation: spin 1.1s linear infinite;
+  margin-bottom: 15px;
+}
+
+.loader p {
+  color: #007bff; /* azul */
+  font-weight: bold;
+  letter-spacing: 0.5px;
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.key-item {
+  background: #fff;
+  border-radius: 16px;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 4px 16px #0001;
+  animation: fadein 0.5s;
+}
+
+.key-item .info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.key-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+}
+
+.key-item .validity {
+  font-weight: bold;
+  margin-right: 1rem;
+  color: green;
+}
+
+.key-item.expired .validity {
+  color: red;
+}
+
+.key-item .delete-btn {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: #b00;
+  background-color: #ED544D;
+}
+
+/* Modal */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(6px);
+  background: rgba(255, 255, 255, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.modal {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 12px 36px #0003;
+  width: 400px;
+  max-width: 90%;
+  animation: fadein 0.3s ease;
+}
+
+.modal input {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1.2rem;
+  border-radius: 10px;
+  border: 1px solid #ccc;
+}
+
+.key-option {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f6f8ff;
+  padding: 0.8rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px #0001;
+}
+
+.key-option img {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  margin-right: 1rem;
+}
+
+.add-btn {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  cursor: pointer;
+}
+
+/* Animação */
+@keyframes fadein {
+  from { opacity: 0; transform: scale(0.97); }
+  to { opacity: 1; transform: scale(1); }
+}
