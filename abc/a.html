@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Vídeo Protegido</title>
+  <style>*{margin:0;padding:0;box-sizing:border-box}body{background:#000;color:#fff;font-family:sans-serif;display:flex;justify-content:center;align-items:center;height:100vh;flex-direction:column}#mensagem{margin-top:20px;color:red;font-size:1.2em;display:none}video#meuVideo::-webkit-media-controls{display:none!important}</style>
+</head>
+<body>
+  <div id="mensagem">Você já assistiu esse vídeo. Acesso bloqueado.</div>
+  <script>
+    const mensagem=document.getElementById("mensagem"),senhaCorreta="batataGostosa123";if(localStorage.getItem("videoVisto")==="true")mensagem.style.display="block";else{let senha=prompt("Digite a senha para assistir o vídeo:");if(senha!==senhaCorreta){alert("Senha incorreta.");mensagem.innerText="Acesso negado.";mensagem.style.display="block";}else{const v=document.createElement("video");v.id="meuVideo",v.src="a.mp4",v.autoplay=!0,v.muted=!0,v.playsInline=!0,v.setAttribute("playsinline",""),v.style.position="fixed",v.style.top="0",v.style.left="0",v.style.width="100vw",v.style.height="100vh",v.style.objectFit="cover",v.style.zIndex="9999",document.body.appendChild(v),v.addEventListener("canplay",async()=>{try{v.requestFullscreen&&await v.requestFullscreen(),await v.play()}catch(e){console.warn("Erro no autoplay:",e)}}),v.addEventListener("ended",()=>{localStorage.setItem("videoVisto","true"),v.remove(),mensagem.style.display="block"})}}document.addEventListener("contextmenu",e=>e.preventDefault()),document.addEventListener("keydown",e=>{const t=e.key.toLowerCase();("f12"===t||e.ctrlKey&&"u"===t||e.ctrlKey&&e.shiftKey&&["i","j","c"].includes(t))&&e.preventDefault()});
+  </script>
+</body>
+</html>
