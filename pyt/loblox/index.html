@@ -6,8 +6,411 @@
     <title>Loblox Tweaker</title>
 	<link rel="icon" href="logotipo.ico" type="image/x-icon">
     <style>
-       @import url(https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&display=swap);.container,.hero,header{display:flex;width:100%}.texto span::after,header h1{background:linear-gradient(90deg,#0af,#05f)}.imagem,.imagem img,.texto span{position:relative}.painel-info,header{backdrop-filter:blur(15px)}.info-texto h2,.requisitos h2{text-shadow:0 2px 5px rgba(0,0,0,.1)}*{margin:0;padding:0;box-sizing:border-box;font-family:Orbitron,sans-serif}body{background:#fff;color:#0a1e3b;overflow-x:hidden;scroll-behavior:smooth}header{background:rgba(255,255,255,.1);padding:1.5rem;position:fixed;top:0;left:0;z-index:1000;box-shadow:0 4px 20px rgba(0,0,0,.15);justify-content:center;align-items:center}header h1{font-size:2.2rem;font-weight:700;text-transform:uppercase;letter-spacing:3px;-webkit-background-clip:text;-webkit-text-fill-color:transparent;text-shadow:0 2px 10px rgba(0,170,255,.3)}.container{min-height:100vh;flex-direction:column;align-items:center;justify-content:center;padding:6rem 5% 2rem;background:linear-gradient(135deg,#e6f3ff 0,#b3d9ff 100%);animation:1.2s ease-in-out fadeIn}.hero{flex-direction:column;align-items:center;justify-content:center;max-width:1400px;gap:2rem}.texto{text-align:center;font-size:clamp(2rem, 5vw, 3.5rem);font-weight:700;color:#0033a0;text-shadow:0 3px 10px rgba(0,0,0,.2);animation:1s ease-out slideInLeft}.container_baixo,.painel-info{max-width:1400px;padding:3rem 5%;animation:1s ease-out fadeInUp;width:100%}.texto span{color:#0af;text-decoration:none;display:inline-block;animation:2s ease-in-out infinite glow}.texto span::after{content:'';position:absolute;bottom:-5px;left:0;width:100%;height:3px;animation:2s ease-in-out infinite pulseLine}.imagem{display:flex;justify-content:center;align-items:center;height:auto}.imagem img{max-width:90%;height:250px;max-height:60vh;filter:drop-shadow(0 15px 30px rgba(0, 123, 255, .4));transition:opacity .6s,transform .6s;animation:4s ease-in-out infinite float;transform:skew(-8deg) translateY(0);transform-origin:center center;top:0}.download-button,.frase,.frases-destaque,.info-frases p,.requisitos{transition:transform .3s,box-shadow .3s}.imagem img.hidden{opacity:0;transform:skew(-8deg) scale(.9)}.imagem img.visible{opacity:1;transform:skew(-8deg) scale(1)}.painel-info{background:rgba(255,255,255,.2);border-radius:20px;box-shadow:0 10px 40px rgba(0,0,0,.15);display:flex;justify-content:space-between;gap:2rem;margin:3rem 0;flex-wrap:wrap}.info-texto{flex:1;text-align:left;min-width:300px}.info-texto h2{font-size:clamp(1.8rem, 4vw, 2.5rem);color:#0033a0;margin-bottom:1.5rem}.info-texto p{font-size:clamp(1rem, 2vw, 1.2rem);color:#1a1a1a;line-height:1.7}.info-frases{flex:1;text-align:right;font-size:clamp(1.2rem, 2.5vw, 1.5rem);color:#0033a0;display:flex;flex-direction:column;gap:1rem;min-width:300px}.info-frases p{display:flex;align-items:center;justify-content:flex-end;gap:.5rem;padding:.5rem;background:rgba(255,255,255,.3);border-radius:10px}.info-frases p:hover{transform:translateX(-10px);box-shadow:0 4px 15px rgba(0,123,255,.3)}.container_baixo{display:flex;justify-content:space-between;gap:2rem;flex-wrap:wrap}.frases-destaque,.requisitos{padding:2rem;background:rgba(255,255,255,.25);border-radius:15px;box-shadow:0 8px 30px rgba(0,0,0,.15);backdrop-filter:blur(12px);flex:1;min-width:300px}.frases-destaque:hover,.requisitos:hover{transform:translateY(-10px);box-shadow:0 12px 40px rgba(0,123,255,.3)}.requisitos h2{font-size:clamp(1.5rem, 3.5vw, 2rem);color:#0033a0;margin-bottom:1rem}.requisitos p{font-size:clamp(.9rem, 2vw, 1.1rem);color:#1a1a1a;margin:.8rem 0;line-height:1.7}.frases-destaque{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:1.5rem}.frase{font-size:clamp(1.5rem, 3vw, 2rem);font-weight:600;color:#0af;text-shadow:0 3px 10px rgba(0,170,255,.3);background:rgba(255,255,255,.2);padding:.8rem 1.5rem;border-radius:10px}.frase:hover{transform:scale(1.1);box-shadow:0 6px 20px rgba(0,123,255,.4)}.copyright{background:rgba(0,0,0,.9);padding:1rem;color:#fff;font-size:clamp(.8rem, 1.5vw, 1rem);text-align:center;width:100%;margin-top:3rem}.download-button{position:fixed;bottom:2rem;right:2rem;padding:1rem 2rem;background:linear-gradient(45deg,#05f,#0af);color:#fff;font-size:clamp(1rem, 2vw, 1.2rem);font-weight:600;border:none;border-radius:50px;cursor:pointer;display:flex;align-items:center;gap:.5rem;box-shadow:0 6px 20px rgba�(0,123,255,.5);animation:2s ease-in-out infinite pulseButton}.download-button:hover{transform:scale(1.1);box-shadow:0 8px 25px rgba(0,123,255,.7)}.button-icon{width:1.5rem;height:auto}@keyframes fadeIn{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}@keyframes fadeInUp{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}@keyframes slideInLeft{from{opacity:0;transform:translateX(-50px)}to{opacity:1;transform:translateX(0)}}@keyframes float{0%,100%{transform:skew(-8deg) translateY(0)}50%{transform:skew(-8deg) translateY(-15px)}}@keyframes glow{0%,100%{text-shadow:0 0 10px rgba(0,170,255,.5)}50%{text-shadow:0 0 20px rgba(0,170,255,.8)}}@keyframes pulseLine{0%,100%{transform:scaleX(1)}50%{transform:scaleX(1.2)}}@keyframes pulseButton{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}@media (max-width:1024px){.hero{flex-direction:column;text-align:center}.texto{font-size:clamp(1.8rem, 6vw, 2.5rem)}.imagem{height:300px}.container_baixo,.painel-info{flex-direction:column;align-items:center}.info-frases{text-align:center;justify-content:center}.info-frases p{justify-content:center}.info-frases p:hover{transform:translateX(0);transform:scale(1.05)}}@media (max-width:768px){header h1{font-size:clamp(1.5rem, 5vw, 1.8rem)}.texto{font-size:clamp(1.5rem, 5vw, 2rem)}.imagem{height:250px}.info-texto h2{font-size:clamp(1.5rem, 4vw, 1.8rem)}.info-frases{font-size:clamp(1rem, 2.5vw, 1.2rem)}.requisitos h2{font-size:clamp(1.3rem, 3.5vw, 1.6rem)}.frase{font-size:clamp(1.2rem, 3vw, 1.5rem)}.download-button{font-size:clamp(.9rem, 2vw, 1rem);padding:.8rem 1.5rem;bottom:1.5rem;right:1.5rem}}@media (max-width:480px){header{padding:1rem}.container{padding:5rem 5% 1.5rem}.texto{font-size:clamp(1.2rem, 4vw, 1.5rem)}.imagem{height:200px}.container_baixo,.painel-info{padding:1.5rem 5%}.info-texto h2,.requisitos h2{font-size:clamp(1.2rem, 3.5vw, 1.4rem)}.frase{font-size:clamp(1rem, 2.5vw, 1.2rem);padding:.5rem 1rem}.download-button{padding:.7rem 1.2rem;font-size:clamp(.8rem, 1.8vw, .9rem)}}
-    </style>
+       @import url(https://fonts.googleapis.com/css2?family=Orbitron:wght@400;
+600;
+700&display=swap);
+.container,.hero,header {
+    display:flex;
+    width:100%
+}
+.texto span::after,header h1 {
+    background:linear-gradient(90deg,#0af,#05f)
+}
+.imagem,.imagem img,.texto span {
+    position:relative
+}
+.painel-info,header {
+    backdrop-filter:blur(15px)
+}
+.info-texto h2,.requisitos h2 {
+    text-shadow:0 2px 5px rgba(0,0,0,.1)
+}
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Orbitron,sans-serif
+}
+body {
+    background:#fff;
+    color:#0a1e3b;
+    overflow-x:hidden;
+    scroll-behavior:smooth
+}
+header {
+    background:rgba(255,255,255,.1);
+    padding:1.5rem;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    box-shadow:0 4px 20px rgba(0,0,0,.15);
+    justify-content:center;
+    align-items:center
+}
+header h1 {
+    font-size:2.2rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:3px;
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+    text-shadow:0 2px 10px rgba(0,170,255,.3)
+}
+.container {
+    min-height:100vh;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    padding:6rem 5% 2rem;
+    background:linear-gradient(135deg,#e6f3ff 0,#b3d9ff 100%);
+    animation:1.2s ease-in-out fadeIn
+}
+.hero {
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    max-width:1400px;
+    gap:2rem
+}
+.texto {
+    text-align:center;
+    font-size:clamp(2rem, 5vw, 3.5rem);
+    font-weight:700;
+    color:#0033a0;
+    text-shadow:0 3px 10px rgba(0,0,0,.2);
+    animation:1s ease-out slideInLeft
+}
+.container_baixo,.painel-info {
+    max-width:1400px;
+    padding:3rem 5%;
+    animation:1s ease-out fadeInUp;
+    width:100%
+}
+.texto span {
+    color:#0af;
+    text-decoration:none;
+    display:inline-block;
+    animation:2s ease-in-out infinite glow
+}
+.texto span::after {
+    content:'';
+    position:absolute;
+    bottom:-5px;
+    left:0;
+    width:100%;
+    height:3px;
+    animation:2s ease-in-out infinite pulseLine
+}
+.imagem {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:70%;
+	height: 70%;
+}
+.imagem img {
+    max-width:80%;
+	max-height:80%; 
+
+    filter:drop-shadow(0 15px 30px rgba(0, 123, 255, .4));
+    transition:opacity .6s,transform .6s;
+    animation:4s ease-in-out infinite float;
+    transform:skew(-8deg) translateY(0);
+    transform-origin:center center;
+    top:0
+}
+.download-button,.frase,.frases-destaque,.info-frases p,.requisitos {
+    transition:transform .3s,box-shadow .3s
+}
+.imagem img.hidden {
+    opacity:0;
+    transform:skew(-8deg) scale(.9)
+}
+.imagem img.visible {
+    opacity:1;
+    transform:skew(-8deg) scale(1)
+}
+.painel-info {
+    background:rgba(255,255,255,.2);
+    border-radius:20px;
+    box-shadow:0 10px 40px rgba(0,0,0,.15);
+    display:flex;
+    justify-content:space-between;
+    gap:2rem;
+    margin:3rem 0;
+    flex-wrap:wrap
+}
+.info-texto {
+    flex:1;
+    text-align:left;
+    min-width:300px
+}
+.info-texto h2 {
+    font-size:clamp(1.8rem, 4vw, 2.5rem);
+    color:#0033a0;
+    margin-bottom:1.5rem
+}
+.info-texto p {
+    font-size:clamp(1rem, 2vw, 1.2rem);
+    color:#1a1a1a;
+    line-height:1.7
+}
+.info-frases {
+    flex:1;
+    text-align:right;
+    font-size:clamp(1.2rem, 2.5vw, 1.5rem);
+    color:#0033a0;
+    display:flex;
+    flex-direction:column;
+    gap:1rem;
+    min-width:300px
+}
+.info-frases p {
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+    gap:.5rem;
+    padding:.5rem;
+    background:rgba(255,255,255,.3);
+    border-radius:10px
+}
+.info-frases p:hover {
+    transform:translateX(-10px);
+    box-shadow:0 4px 15px rgba(0,123,255,.3)
+}
+.container_baixo {
+    display:flex;
+    justify-content:space-between;
+    gap:2rem;
+    flex-wrap:wrap
+}
+.frases-destaque,.requisitos {
+    padding:2rem;
+    background:rgba(255,255,255,.25);
+    border-radius:15px;
+    box-shadow:0 8px 30px rgba(0,0,0,.15);
+    backdrop-filter:blur(12px);
+    flex:1;
+    min-width:300px
+}
+.frases-destaque:hover,.requisitos:hover {
+    transform:translateY(-10px);
+    box-shadow:0 12px 40px rgba(0,123,255,.3)
+}
+.requisitos h2 {
+    font-size:clamp(1.5rem, 3.5vw, 2rem);
+    color:#0033a0;
+    margin-bottom:1rem
+}
+.requisitos p {
+    font-size:clamp(.9rem, 2vw, 1.1rem);
+    color:#1a1a1a;
+    margin:.8rem 0;
+    line-height:1.7
+}
+.frases-destaque {
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:1.5rem
+}
+.frase {
+    font-size:clamp(1.5rem, 3vw, 2rem);
+    font-weight:600;
+    color:#0af;
+    text-shadow:0 3px 10px rgba(0,170,255,.3);
+    background:rgba(255,255,255,.2);
+    padding:.8rem 1.5rem;
+    border-radius:10px
+}
+.frase:hover {
+    transform:scale(1.1);
+    box-shadow:0 6px 20px rgba(0,123,255,.4)
+}
+.copyright {
+    background:rgba(0,0,0,.9);
+    padding:1rem;
+    color:#fff;
+    font-size:clamp(.8rem, 1.5vw, 1rem);
+    text-align:center;
+    width:100%;
+    margin-top:3rem
+}
+.download-button {
+    position:fixed;
+    bottom:2rem;
+    right:2rem;
+    padding:1rem 2rem;
+    background:linear-gradient(45deg,#05f,#0af);
+    color:#fff;
+    font-size:clamp(1rem, 2vw, 1.2rem);
+    font-weight:600;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    gap:.5rem;
+    box-shadow:0 6px 20px rgba�(0,123,255,.5);
+    animation:2s ease-in-out infinite pulseButton
+}
+.download-button:hover {
+    transform:scale(1.1);
+    box-shadow:0 8px 25px rgba(0,123,255,.7)
+}
+.button-icon {
+    width:1.5rem;
+    height:auto
+}
+@keyframes fadeIn {
+    from {
+        opacity:0;
+        transform:translateY(30px)
+    }
+    to {
+        opacity:1;
+        transform:translateY(0)
+    }
+}
+@keyframes fadeInUp {
+    from {
+        opacity:0;
+        transform:translateY(50px)
+    }
+    to {
+        opacity:1;
+        transform:translateY(0)
+    }
+}
+@keyframes slideInLeft {
+    from {
+        opacity:0;
+        transform:translateX(-50px)
+    }
+    to {
+        opacity:1;
+        transform:translateX(0)
+    }
+}
+@keyframes float {
+    0%,100% {
+        transform:skew(-8deg) translateY(0)
+    }
+    50% {
+        transform:skew(-8deg) translateY(-15px)
+    }
+}
+@keyframes glow {
+    0%,100% {
+        text-shadow:0 0 10px rgba(0,170,255,.5)
+    }
+    50% {
+        text-shadow:0 0 20px rgba(0,170,255,.8)
+    }
+}
+@keyframes pulseLine {
+    0%,100% {
+        transform:scaleX(1)
+    }
+    50% {
+        transform:scaleX(1.2)
+    }
+}
+@keyframes pulseButton {
+    0%,100% {
+        transform:scale(1)
+    }
+    50% {
+        transform:scale(1.08)
+    }
+}
+@media (max-width:1024px) {
+    .hero {
+        flex-direction:column;
+        text-align:center
+    }
+    .texto {
+        font-size:clamp(1.8rem, 6vw, 2.5rem)
+    }
+    .imagem {
+        height:300px
+    }
+    .container_baixo,.painel-info {
+        flex-direction:column;
+        align-items:center
+    }
+    .info-frases {
+        text-align:center;
+        justify-content:center
+    }
+    .info-frases p {
+        justify-content:center
+    }
+    .info-frases p:hover {
+        transform:translateX(0);
+        transform:scale(1.05)
+    }
+}
+@media (max-width:768px) {
+    header h1 {
+        font-size:clamp(1.5rem, 5vw, 1.8rem)
+    }
+    .texto {
+        font-size:clamp(1.5rem, 5vw, 2rem)
+    }
+    .imagem {
+        height:200px;
+		}
+    .info-texto h2 {
+        font-size:clamp(1.5rem, 4vw, 1.8rem)
+    }
+    .info-frases {
+        font-size:clamp(1rem, 2.5vw, 1.2rem)
+    }
+    .requisitos h2 {
+        font-size:clamp(1.3rem, 3.5vw, 1.6rem)
+    }
+    .frase {
+        font-size:clamp(1.2rem, 3vw, 1.5rem)
+    }
+    .download-button {
+        font-size:clamp(.9rem, 2vw, 1rem);
+        padding:.8rem 1.5rem;
+        bottom:1.5rem;
+        right:1.5rem
+    }
+}
+@media (max-width:480px) {
+    header {
+        padding:1rem
+    }
+    .container {
+        padding:5rem 5% 1.5rem
+    }
+    .texto {
+        font-size:clamp(1.2rem, 4vw, 1.5rem)
+    }
+    .imagem {
+        height:150px
+    }
+    .container_baixo,.painel-info {
+        padding:1.5rem 5%
+    }
+    .info-texto h2,.requisitos h2 {
+        font-size:clamp(1.2rem, 3.5vw, 1.4rem)
+    }
+    .frase {
+        font-size:clamp(1rem, 2.5vw, 1.2rem);
+        padding:.5rem 1rem
+    }
+    .download-button {
+        padding:.7rem 1.2rem;
+        font-size:clamp(.8rem, 1.8vw, .9rem)
+    }
+}    
+</style>
 </head>
 <body>
     <header>
@@ -19,7 +422,7 @@
                 <img id="imagem-central" src="logotipo.ico" alt="Imagem do Loblox Tweaker" class="visible">
             </div>
             <div class="texto">
-                <p>O Melhor?... não apenas <span>incomparáveis</span>.</p>
+                <p>O Melhor?... não, apenas <span>incomparáveis</span>.</p>
             </div>
         </div>
     </div>
@@ -40,7 +443,7 @@
     <p><strong>RAM:</strong> 512MB</p>
     <p><strong>Processador:</strong> Qualquer dual-core</p>
     <p><strong>Placa de Vídeo:</strong> Integrada</p>
-    <p><strong>HD/SSD:</strong> ~200Kb</p>
+    <p><strong>HD/SSD:</strong> ~15MB</p>
 </div>
 <div class="frases-destaque">
     <p class="frase">+FPS</p>
