@@ -34,12 +34,13 @@ main{
     gap: 10px;
     
     /* Estilizando botao*/
-    background: linear-gradient(to right, #45df08, #35bc00, #1beb00); /*Caso after falhe*/
-    border-radius: 30px;
-    padding-bottom: 2px;
-    border: #1beb00 solid 2px;
-    box-shadow: 0 0 30px #000000;
-    animation: zoom 1.2s ease infinite;  
+   background: linear-gradient(to right, #8c4fff, #6c5ce7, #5f27cd); /* Caso after falhe */
+   border-radius: 30px;
+   padding-bottom: 2px;
+   border: #8c4fff solid 2px; 
+   box-shadow: 0 0 30px #000000; 
+   animation: zoom 1.2s ease infinite;
+
 
     z-index: 9999999;
 }
@@ -67,17 +68,18 @@ main{
   height: calc(100% + 4px);
   width: calc(100% + 4px);
   background: linear-gradient(
-    135deg,
-    #d4ff00,
-    #a8ff00,
-    #00ff00,
-    #00e600,
-    #b3ff00,
-    #b7ff00,
-    #c8ff00,
-    #a2ff00,
-    #51ff00
-  );
+  135deg,
+  #7289da,  /* Azul igual do Discord */
+  #8c4fff,  /* Roxo vibrante */
+  #7c3aed,  /* Roxo saturado */
+  #6b21a8,  /* Roxo profundo */
+  #5f27cd,  /* Roxo neon */
+  #4834d4,  /* Azul escuro com roxo */
+  #6c5ce7,  /* Roxo claro saturado */
+  #9b59b6,  /* Roxo médio */
+  #8e44ad   /* Violeta escuro */
+);
+
   background-size: 600%;
   border-radius: 30px;
   z-index: -1;
