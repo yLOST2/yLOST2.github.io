@@ -1,0 +1,111 @@
+/******************************/
+/* CSS DA ABA MAIS RELEVANTES */
+/******************************/
+
+.grid-populares {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  scroll-behavior: smooth;
+}
+
+.card-produto {
+  position: relative;
+  min-width: 250px;
+  height: 350px;
+  background: #0a1a3a;
+  border: 2px solid #00ffdd;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 255, 221, 0.5), 
+              0 0 30px rgba(0, 255, 221, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-produto:hover {
+  box-shadow: 0 0 25px rgba(0, 255, 221, 0.7), 
+              0 0 50px rgba(0, 255, 221, 0.4);
+}
+
+.card-produto img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transition: filter 0.3s ease;
+}
+
+.card-produto::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  z-index: 1;
+  transition: left 0.8s ease;
+}
+
+.card-produto:hover::before {
+  left: 100%;
+}
+
+.card-produto .info-produto {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 40%;
+  width: 100%;
+  padding: 0.35rem 0.5rem;
+  background: linear-gradient(to top, rgba(10, 26, 58, 0.9), rgba(10, 26, 58, 0.6));
+  backdrop-filter: blur(15px);
+  border-top: 3px solid #000;
+  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 2;
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+
+.card-produto h3 {
+  font-size: 1.1rem;
+  margin: 0.4rem 0;
+  color: #ffffff;
+  text-shadow: 0 0 5px #00ffdd;
+}
+
+.card-produto p {
+  font-size: 0.9rem;
+  color: #e0e0e0;
+  margin: 0.4rem 0;
+  flex-grow: 1;
+}
+
+.card-produto .preco {
+  font-weight: bold;
+  color: #7dc5ff;
+  font-size: 1.5rem;
+  margin-top: 0.4rem;
+  text-shadow: 0 0 5px #7dc5ff;
+}
+
+.card-produto[data-tilt] {
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg);
+}

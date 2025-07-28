@@ -1,0 +1,140 @@
+
+
+/**************************/
+/*    CSS DA ABA JOGOS    */
+/**************************/
+
+.grid-jogos {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  scroll-behavior: smooth;
+}
+
+.card-jogo {
+  position: relative;
+  min-width: 250px;
+  height: 350px;
+  background: #0a1a3a;
+  border: 2px solid #00ffdd;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(0, 255, 221, 0.5), 
+              0 0 30px rgba(0, 255, 221, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-jogo:hover {
+  box-shadow: 0 0 25px rgba(0, 255, 221, 0.7), 
+              0 0 50px rgba(0, 255, 221, 0.4);
+}
+
+.card-jogo img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+  transition: filter 0.3s ease;
+}
+
+.card-jogo::before {
+  content: '';
+  position: absolute;
+  top: -120%;
+  left: -100%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    135deg, /* <-- ângulo da inclinação (\\) */
+    transparent 40%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 60%
+  );
+  z-index: 1;
+  transition: transform 800ms linear;
+  pointer-events: none;
+}
+
+.card-jogo:hover::before {
+  transform: translate(80%, 80%);
+}
+
+
+.card-jogo .info-jogo {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  height: 40%;
+  width: 100%;
+  padding: 0.35rem 0.5rem;
+  background: linear-gradient(to top, rgba(10, 26, 58, 0.9), rgba(10, 26, 58, 0.6));
+  backdrop-filter: blur(15px);
+  border-top: 3px solid #000;
+  box-shadow: 0 -5px 10px rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 2;
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+
+.card-jogo h3 {
+  font-size: 2rem;
+  margin: 0.4rem 0;
+  color: #ffffff;
+  text-shadow: 0 0 5px #00ffdd;
+}
+.card-jogo button {
+  font-size: 1.3rem;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 7px;
+  border-radius: 40px;
+  width: 70%;
+  padding: 6px 8px;
+  background: linear-gradient(135deg, #00c3ff, #007aff);
+  color: #fff;
+  border: 2px solid #00ffdd;
+  box-shadow: 0 0 10px rgba(0, 255, 221, 0.4), 
+              0 0 20px rgba(0, 255, 221, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  text-shadow: 0 0 3px #000;
+  backdrop-filter: blur(2px);
+  z-index: 3;
+  position: relative;
+  overflow: hidden;
+}
+
+.card-jogo button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(61, 241, 253, 0.669), transparent);
+  transition: left 0.5s ease;
+}
+
+.card-jogo button:hover::before {
+  left: 100%;
+}
+
+.card-jogo button:hover {
+  background: linear-gradient(135deg, #00e0ff, #0090ff);
+  box-shadow: 0 0 20px rgba(0, 255, 221, 0.6), 
+              0 0 35px rgba(0, 255, 221, 0.4);
+  transform: scale(1.05);
+}

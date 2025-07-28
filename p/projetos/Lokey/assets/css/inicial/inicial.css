@@ -1,0 +1,146 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Orbitron', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  transition: all 0.3s ease;
+}
+
+body {
+  background: linear-gradient(180deg, #0a1a3a, #1e3a8a);
+  color: #ffffff;
+}
+
+@import url(assets/css/inicial/banner.css);
+
+
+/*****************/
+/* Media Queries Principais */
+/*****************/
+
+@media (max-width: 768px) {
+  header {
+    height: 12vh;
+    padding: 0 15px;
+  }
+
+  .pl_logo img.logo {
+    height: 60%;
+    max-width: 140px;
+  }
+
+  .botaoCarrinho span {
+    width: auto;
+    opacity: 1;
+    overflow: visible;
+    white-space: normal;
+  }
+
+
+  .pl_banner {
+    height: 50vh;
+    padding: 0 20px;
+  }
+
+  .banner-texto {
+    max-width: 90%;
+    padding: 10px;
+  }
+
+  .banner-texto h1 {
+    font-size: 2.5rem;
+  }
+
+  .banner-texto p {
+    font-size: 1rem;
+  }
+
+  .btn-destaque {
+    font-size: 1.1rem;
+    padding: 8px 16px;
+    margin-top: 15px;
+  }
+
+  .populares h2 {
+    font-size: 2.8rem;
+  }
+
+  .populares h2 img {
+    height: 40px;
+  }
+
+  .populares h2::after {
+    width: 50%;
+  }
+
+  .destaques-site{position: relative;}
+  .destaques-site h2 {
+  font-size: 1.8rem;
+  text-align: center;
+  word-break: break-all;
+}
+}
+
+@media (max-width: 480px) {
+  header {
+    height: 10vh;
+    padding-right: 5px;
+  }
+
+  .pl_logo img.logo {
+    max-width: 120px;
+  }
+  .pl_botoes{gap: 6px;}
+  .botaoCarrinho, .botaoConta {
+    gap: 6px;
+    padding: 4px 8px;
+    font-size: 0.8rem;
+  }
+
+  .botaoCarrinho img.cart-icon, .botaoConta img{
+    height: 20px;
+    width: 20px;
+  }
+  .botaoConta{
+    max-height: 100%;
+    gap: 0px;
+    overflow: hidden;
+  }
+  .botaoConta span{display: none;}
+  .botaoConta img{height: 100%; width: auto;}
+
+  .pl_banner {
+    height: 40vh;
+    padding: 0 10px;
+  }
+
+  .banner-texto h1 {
+    font-size: 1.8rem;
+    backdrop-filter: blur(1px);
+    padding: 5px;
+  }
+
+  .banner-texto p {
+    font-size: 0.9rem;
+    backdrop-filter: blur(2px);
+  }
+
+  .btn-destaque {
+    display: none;
+  }
+
+  :is(.populares, .jogos) h2 {
+    font-size: 2rem;
+    padding: 10px;
+  }
+
+  :is(.populares, .jogos) h2 img {
+    height: 30px;
+  }
+
+  :is(.populares, .jogos) h2::after {
+    width: 60%;
+    left: 15px;
+    bottom: 3px;
+  }
+}

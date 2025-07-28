@@ -1,0 +1,128 @@
+
+
+/* Banner */
+.pl_banner {
+  position: relative;
+  width: 100%;
+  height: 85vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14vh;
+  border-bottom: 4px solid #00a6fe;
+  box-shadow: 0 8px 15px rgba(0, 166, 254, 0.4);
+  background: radial-gradient(circle at center, rgba(0, 166, 254, 0.2), transparent);
+}
+
+.banner-img {
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-size: 100% auto;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  filter: brightness(0.6) contrast(1.1);
+  transition: filter 0.5s ease;
+}
+
+.pl_banner:hover .banner-img {
+  filter: brightness(0.7) contrast(1.2);
+}
+
+.banner-texto {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #ffffff;
+  padding: 20px;
+  max-width: 60%;
+  border-radius: 15px;
+}
+
+.banner-texto h1 {
+  font-size: 4rem;
+  font-weight: 700;
+  text-shadow: 0 0 10px #000000;
+  padding: 10px;
+  backdrop-filter: blur(3px);
+  filter: drop-shadow(0px 0px 8px #000) ;
+}
+
+.banner-texto p {
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-shadow: 0 0 5px #7dc5ff;
+  margin: 10px 0;
+  text-shadow: 0 0 4px #000000;
+}
+
+.btn-destaque {
+  display: inline-block;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #ffffff;
+  background: linear-gradient(45deg, #00a6fe, #00ffdd);
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: 2px solid #0d0f6b;
+  font-size: 1.4rem;
+  font-weight: 600;
+  box-shadow: 0 0 10px rgba(0, 166, 254, 0.5);
+  transition: background 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.btn-destaque:hover {
+  background: linear-gradient(45deg, #00ffdd, #7dc5ff);
+  box-shadow: 0 0 20px rgba(0, 255, 221, 0.7);
+  transform: translateY(-3px);
+}
+
+@media (max-width: 768px) {
+  .pl_banner {
+    height: 50vh;
+    padding: 0 20px;
+  }
+
+  .banner-texto {
+    max-width: 90%;
+    padding: 10px;
+  }
+
+  .banner-texto h1 {
+    font-size: 2.5rem;
+  }
+
+  .banner-texto p {
+    font-size: 1rem;
+  }
+
+  .btn-destaque {
+    font-size: 1.1rem;
+    padding: 8px 16px;
+    margin-top: 15px;
+  }
+}
+@media (max-width: 480px) {
+  .pl_banner {
+    height: 40vh;
+    padding: 0 10px;
+  }
+
+  .banner-texto h1 {
+    font-size: 1.8rem;
+    backdrop-filter: blur(1px);
+    padding: 5px;
+  }
+
+  .banner-texto p {
+    font-size: 0.9rem;
+    backdrop-filter: blur(2px);
+  }
+
+  .btn-destaque {
+    display: none;
+  }
+}

@@ -1,0 +1,210 @@
+
+/* Header */
+header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 14vh;
+  background: rgba(10, 26, 58, 0.9);
+  justify-content: space-between;
+
+  align-items: center;
+  padding-left: 3vw;
+  padding-right: 1vw;
+  z-index: 1000;
+     -webkit-backdrop-filter: blur(16px);
+   border-bottom: 2px solid #00ffdd;
+   box-shadow: 0 6px 6px rgba(0, 255, 221, 0.5);
+}
+
+.pl_logo img.logo {
+  height: 70%;
+  max-width: 200px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px #009dff);
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.pl_logo img.logo:hover {
+  filter: drop-shadow(0 0 12px #0055ff);
+}
+.pl_botoes{
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.pl_botao {
+  display: flex;
+  align-items: center;
+}
+
+.botaoConta {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 8px 10px;
+  height: 88%;
+  background: linear-gradient(45deg, #00a6fe, #7dc5ff);
+  border-radius: 50px;
+  border: 2px solid #0d0f6b;
+  box-shadow: 0 0 10px rgba(0, 166, 254, 0.5);
+  transition: background 0.5s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.botaoConta:hover {
+  background: linear-gradient(45deg, #7dc5ff, #00ffdd);
+  box-shadow: 0 0 20px rgba(0, 255, 221, 0.7);
+  transform: translateY(-2px);
+  color: #0a1a3a;
+    gap: 6px;
+}
+.botaoConta span {width: 0;opacity: 0;overflow: hidden;white-space: nowrap;transition: width 0.4s ease, opacity 0.4s ease;}
+.botaoConta:hover span {width: 54px;opacity: 1;}.botaoCarrinho img.cart-icon {height: 24px;width: 24px;object-fit: contain;filter: drop-shadow(0 0 5px #00ffdd);}
+
+.botaoCarrinho {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 8px 20px;
+  background: linear-gradient(45deg, #00a6fe, #7dc5ff);
+  border-radius: 50px;
+  border: 2px solid #0d0f6b;
+  box-shadow: 0 0 10px rgba(0, 166, 254, 0.5);
+  transition: background 0.5s ease, box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.botaoCarrinho:hover {
+  background: linear-gradient(45deg, #7dc5ff, #00ffdd);
+  box-shadow: 0 0 20px rgba(0, 255, 221, 0.7);
+  transform: translateY(-2px);
+  color: #0a1a3a;
+    gap: 8px;
+}
+
+.botaoCarrinho span {
+  width: 0;
+  opacity: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: width 0.4s ease, opacity 0.4s ease;
+}
+
+.botaoCarrinho:hover span {
+  width: 70px;
+  opacity: 1;
+}
+
+.botaoCarrinho img.cart-icon {
+  height: 24px;
+  width: 24px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 5px #00ffdd);
+}
+
+
+/* **************************** */
+/* Barra de pesquisa */
+/* **************************** */
+
+.pl_barraDePesquisa {
+    display: flex;
+    width: 100%;
+    max-height: auto;
+    text-align: center;
+    z-index: 1000;
+    justify-content: center;
+    position: relative;
+}
+
+
+.pl_barraDePesquisa input[type="text"] {
+    width: 70%;
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 20px;
+    height: 7vh;
+    outline: none;
+    border: #011f5f 2px solid;
+    max-width: 600px;
+    font-family: 'Orbitron', 'Segoe UI', sans-serif;
+    color: #ffffff;
+    background: linear-gradient(45deg, #174cb5, #1e3a8a);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+
+.pl_barraDePesquisa input[type="text"]::placeholder {
+    color: #ffffff99;
+    font-style: italic;
+    font-size: 17px;
+}
+
+
+.pl_barraDePesquisa button {
+    padding: 6px 12px;
+    display: none;
+    margin-left: 5px;
+    font-size: 16px;
+    background-color: #0088ff;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+
+@media (max-width: 768px) {
+    .pl_barraDePesquisa {
+        margin-top: 0; 
+        position: absolute; 
+        top: 100%; 
+        left: 0;
+        padding: 0 10px;
+        background: rgba(10, 26, 58, 0.85); 
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #00ffdd; 
+    box-shadow: 0 6px 6px rgba(0, 255, 221, 0.4); 
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+    header{
+      border:none;
+      box-shadow: none;
+    }
+
+    .pl_barraDePesquisa input[type="text"] {
+        width: 100%; 
+        font-size: 14px; 
+        height: 6vh; 
+    }
+
+
+    .pl_barraDePesquisa button {
+        display: inline-block;
+    }
+}
+
+
+@media (max-width: 480px) {
+    .pl_barraDePesquisa {
+        margin-top: 0; 
+        padding: 8px; 
+    }
+
+    .pl_barraDePesquisa input[type="text"] {
+        width: 100%; 
+        font-size: 13px; 
+        height: 6vh; 
+    }
+}
