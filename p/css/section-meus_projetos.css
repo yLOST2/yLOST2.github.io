@@ -1,0 +1,213 @@
+
+
+/**************************************/
+/*      ABA 3 - Meus Projetos         */
+/**************************************/
+
+.section-meus_projetos{
+    width: 100%;
+    min-height: 95vh;
+    height: auto;
+    background-color: #f2d600;
+    padding: calc(5vh) 10px;
+    box-sizing: border-box;
+    overflow: hidden;
+    box-shadow: inset 0 0 50px #000;
+}
+
+.meus_projetos-Titulo{
+    display: block;
+    font-size: 4rem;
+    color: white;
+    text-align: center;
+    text-shadow: 2px 0 4px #000;
+}
+
+.section-meus_projetos .meus_projetos{
+    display: flex;
+    width: 100%;
+    height: 50vh;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    
+} 
+.meus_projetos .meus_projetos-item{
+    width: 33.33%;
+    height: 40vh;
+    position: relative;
+    z-index:1;
+    overflow: visible;
+    background-color: #a48000;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    border-radius: 20px;
+    font-size: none;
+    font-weight: normal;
+    box-shadow: 0 0 24px #ffffff;
+    transition: transform 800ms ease, box-shadow 1200ms ease;
+}
+.meus_projetos .meus_projetos-item:hover{
+    transform: scale(1.02);
+    box-shadow: 0 0 32px #787a00;
+}
+
+
+.meus_projetos-item .item-TITULO{
+    display: block;
+    font-size: 25px;
+    color: rgb(255, 239, 151);
+    text-align: center;
+    padding: 10px 0px;
+    background-color: #a78800;
+    border-radius: 20px 20px 0 0;
+    transition: opacity 1200ms ease;
+    text-shadow: 0px 0px 4px #000;
+}
+
+.meus_projetos-item .item-TITULO span{
+    text-shadow: 0px 0 4px #b5d100;
+    text-decoration: underline;
+}
+
+.meus_projetos-item .item-IMAGEM{
+    height: 98%;
+    width: 98%;
+    position: absolute;
+    top: 1%;
+    left: 1%;
+    z-index: -1;
+    border: 2px solid #000;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+
+.meus_projetos-item .item-DESCRICAO{
+    background-color: rgb(189, 145, 0);
+    min-height: 10px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transform: translateY(80%);
+    padding: 10px;
+    text-align: justify;
+    text-align-last: left;  
+    transition: opacity 800ms ease;
+    box-shadow: 0 0 14px #efd300;
+}
+
+.meus_projetos-item:hover .item-DESCRICAO, .meus_projetos-item:hover .item-TITULO{
+    opacity: 0;
+}
+
+
+.meus_projetos-item .item-ARTICLE{
+    font-size: 20px;
+    color: white;
+    text-shadow: 0px 0px 6px #000;
+}
+
+
+
+@media (max-width: 1080px) {
+      .meus_projetos-Titulo {
+    font-size: 4rem;
+    padding-bottom: 20px;
+  }
+
+  .section-meus_projetos .meus_projetos {
+    height: auto;
+    gap: 2vw;
+    align-items: center;
+    padding-bottom: 25vh;
+  }
+
+    .meus_projetos-item .item-TITULO {
+    font-size: 22px;
+    padding: 8px 0;
+  }
+}
+
+
+
+
+@media (max-width: 768px) {
+  .section-meus_projetos {
+    padding: 30px 10px;
+    min-height: auto;
+    height: auto;
+  }
+
+  .meus_projetos-Titulo {
+    font-size: 2.5rem;
+    padding-bottom: 20px;
+  }
+
+  .section-meus_projetos .meus_projetos {
+    flex-direction: column;
+    height: auto;
+    gap: 16vh;
+    align-items: center;
+    padding-bottom: 12vh;
+  }
+
+  .meus_projetos .meus_projetos-item {
+    width: 90%;
+    height: 55vh;
+  }
+
+  .meus_projetos-item .item-TITULO {
+    font-size: 22px;
+    padding: 8px 0;
+  }
+
+  .meus_projetos-item .item-IMAGEM {
+    height: 95%;
+    width: 95%;
+    top: 2.5%;
+    left: 2.5%;
+  }
+
+  .meus_projetos-item .item-DESCRICAO {
+    font-size: 16px;
+    padding: 8px;
+    transform: translateY(40%);
+  }
+
+  .meus_projetos-item .item-ARTICLE {
+    font-size: 18px;
+  }
+}
+
+
+
+
+@media (max-width: 480px) {
+  .meus_projetos .meus_projetos-item {
+    width: 95%;
+    height: 40vh;
+    overflow: visible;
+  }
+
+  .meus_projetos-item .item-TITULO {
+    font-size: 18px;
+  }
+.section-meus_projetos .meus_projetos {
+    gap:20vh;
+    max-height: auto;
+    padding-bottom: 14vh;
+  }
+
+  .meus_projetos-item .item-DESCRICAO {
+    font-size: 14px;
+    transform: translateY(65%);
+  }
+   .meus_projetos-item:hover .item-DESCRICAO{
+    opacity: 1;
+  }
+  .meus_projetos-item .item-ARTICLE {
+    font-size: 16px;
+  }
+}

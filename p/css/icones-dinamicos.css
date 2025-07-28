@@ -1,0 +1,39 @@
+
+/****************************/
+/*    ICONES DINAMICOS      */
+/****************************/
+
+.icone {
+    display: inline-block;
+    width: 1.2em;
+    height: 1.2em;
+    vertical-align: middle;
+    background-size: contain;
+    background-repeat: no-repeat;
+    margin: 0 0.2em;
+    border-radius:20px;
+    filter: drop-shadow(0px 0px 4px #000000)
+}
+
+.icone.console-icon {
+    background-image: url(../content/console.png);
+}
+.icone.cat-imagem {
+    background-image: url(../content/cat-image.jpg);
+}
+.icone.cat-nerd {
+    background-image: url(../content/cat-nerd.jpg);  
+}
+.icone.cat-computer {
+    background-image: url(../content/cat-computer.jpg);
+}
+.icone.cat-friends {
+    background-image: url(../content/cat-friends.jpg);
+    background-size: 150% 150%;
+    background-position: center center;
+}
+.icone.planet-earth {
+    background-image: url(../content/planet-earth.jpg);
+    background-size: 150% 150%;
+    background-position: center center;
+}

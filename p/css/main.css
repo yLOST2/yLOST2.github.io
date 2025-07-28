@@ -1,0 +1,159 @@
+*{margin: 0; padding: 0; box-sizing: border-box;}
+
+body{
+    height: 100%;
+    width: 100%;    
+}
+
+main{
+    height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+/******************/
+/*  BOTAO DO ZAP  */
+/******************/
+
+.contato-zap{
+    position: fixed;
+    bottom: 3%;
+    right: 1%;
+    height: 60px;
+    width: 200px;
+    cursor: pointer;
+    text-align: center; 
+    outline: none;
+
+    
+    display: flex;
+    flex-direction: row;
+    padding: 3px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    
+    /* Estilizando botao*/
+    background: linear-gradient(to right, #45df08, #35bc00, #1beb00); /*Caso after falhe*/
+    border-radius: 30px;
+    padding-bottom: 2px;
+    border: #1beb00 solid 2px;
+    box-shadow: 0 0 30px #000000;
+    animation: zoom 1.2s ease infinite;  
+
+    z-index: 9999999;
+}
+
+
+@keyframes zoom {
+    0%{transform: scale(1);}
+    50%{transform: scale(1.04);}
+    100%{transform: scale(1);}
+}
+.contato-zap:hover{
+     animation: none;  
+     transform: scale(1.04);
+}
+
+.contato-zap:hover .contato-zap::after {
+    animation: brilho-gradiente 24s ease-in-out infinite;
+}
+
+.contato-zap::after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  top: -2px;
+  height: calc(100% + 4px);
+  width: calc(100% + 4px);
+  background: linear-gradient(
+    135deg,
+    #d4ff00,
+    #a8ff00,
+    #00ff00,
+    #00e600,
+    #b3ff00,
+    #b7ff00,
+    #c8ff00,
+    #a2ff00,
+    #51ff00
+  );
+  background-size: 600%;
+  border-radius: 30px;
+  z-index: -1;
+  filter: blur(12px);
+  animation: brilho-gradiente 12s ease-in-out infinite;
+}
+
+@keyframes brilho-gradiente {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+
+
+.contato-zap .contato-texto{
+    /* Estilizando texto do botao*/
+    color: white;
+    text-shadow: 0 0 4px #000;
+    font-size:  22px;
+    font-weight: 600;
+}
+
+.contato-zap img{
+    height: auto;
+    width: 39px;
+    filter:drop-shadow(0 0 12px #000000); 
+}
+
+.contato-zap:hover img{
+    display: none;   
+}
+
+
+.contato-zap img:nth-child(2){
+    height: 39px;
+    width: 39px;
+    display: none;
+    border-radius: 20px;
+    object-fit: fill;
+}
+
+.contato-zap:hover img:nth-child(2){
+    display: inline;   
+}
+
+
+@media (max-width: 720px) {
+    .contato-zap{
+    position: fixed;
+    bottom: 3%;
+    right: 3%;
+    height: 60px;
+    width: 160px;
+    }
+
+    .contato-zap .contato-texto{
+    font-size:  16px;
+    font-weight: 600;
+}
+
+.contato-zap img{
+    width: auto;
+    height: 33px;
+}
+
+.contato-zap img:nth-child(2){
+    width: 33px;
+    height: 33px;
+}
+}
+
+
