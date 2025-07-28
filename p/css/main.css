@@ -15,7 +15,7 @@ main{
 /*  BOTAO DO ZAP  */
 /******************/
 
-.contato-zap{
+.contato-app{
     position: fixed;
     bottom: 3%;
     right: 1%;
@@ -51,16 +51,16 @@ main{
     50%{transform: scale(1.04);}
     100%{transform: scale(1);}
 }
-.contato-zap:hover{
+.contato-app:hover{
      animation: none;  
      transform: scale(1.04);
 }
 
-.contato-zap:hover .contato-zap::after {
+.contato-app:hover .contato-app::after {
     animation: brilho-gradiente 24s ease-in-out infinite;
 }
 
-.contato-zap::after {
+.contato-app::after {
   content: '';
   position: absolute;
   left: -2px;
@@ -101,7 +101,7 @@ main{
 
 
 
-.contato-zap .contato-texto{
+.contato-app .contato-texto{
     /* Estilizando texto do botao*/
     color: white;
     text-shadow: 0 0 4px #000;
@@ -109,18 +109,18 @@ main{
     font-weight: 600;
 }
 
-.contato-zap img{
+.contato-app img{
     height: auto;
     width: 39px;
     filter:drop-shadow(0 0 12px #000000); 
 }
 
-.contato-zap:hover img{
+.contato-app:hover img{
     display: none;   
 }
 
 
-.contato-zap img:nth-child(2){
+.contato-app img:nth-child(2){
     height: 39px;
     width: 39px;
     display: none;
@@ -128,13 +128,13 @@ main{
     object-fit: fill;
 }
 
-.contato-zap:hover img:nth-child(2){
+.contato-app:hover img:nth-child(2){
     display: inline;   
 }
 
 
 @media (max-width: 720px) {
-    .contato-zap{
+    .contato-app{
     position: fixed;
     bottom: 3%;
     right: 3%;
@@ -142,17 +142,17 @@ main{
     width: 160px;
     }
 
-    .contato-zap .contato-texto{
+    .contato-app .contato-texto{
     font-size:  16px;
     font-weight: 600;
 }
 
-.contato-zap img{
+.contato-app img{
     width: auto;
     height: 33px;
 }
 
-.contato-zap img:nth-child(2){
+.contato-app img:nth-child(2){
     width: 33px;
     height: 33px;
 }
