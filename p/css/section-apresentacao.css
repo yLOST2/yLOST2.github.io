@@ -95,7 +95,7 @@ background: linear-gradient(
     background-color: #121212;
     border-left: 4px solid #ffff00;
     box-shadow: -2px 0px 8px #f8be00, -8px 4px 18px #000;
-    margin: 0;
+    margin: none;
     filter: brightness(1.05);
     object-fit: fill;
     opacity: 1;
@@ -133,6 +133,9 @@ background: linear-gradient(
      min-height: 100vh;
     max-height: 100vh;
   }
+      .apresentacao-video{
+      margin:none;
+    }
 
   .section-apresentacao .apresentacao-conteudo {
     width: 100%;
@@ -176,6 +179,21 @@ background: linear-gradient(
     width: 100%;
     height: auto;
     aspect-ratio: 16/9;
+    border-left: none;
+    border-top: 4px solid #ffff00;
+    box-shadow: 0px -2px 8px #f8be00;
+    transform: none;
+  }
+}
+
+
+@media (max-width: 560px) {
+  .section-apresentacao .apresentacao-video {
+    width: 100%;
+    height: 40vh;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+    margin: 0;
     border-left: none;
     border-top: 4px solid #ffff00;
     box-shadow: 0px -2px 8px #f8be00;
