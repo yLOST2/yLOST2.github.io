@@ -126,12 +126,32 @@
 
 @media (max-width: 480px) {
     .quemsoueu-texto {
-        font-size: 16px;
+        font-size: 19px;
         padding: 12px;
+        width: 97vw;
+        padding: 14px
     }
+     .quemsoueu-texto::after {
+        width: 100%;
+        left: 0;
+     }
+
+     .section-quemsoueu{
+        height: 70vh;
+     }
 
     .quemsoueu-texto h2 {
         font-size: 24px;
     }
 }
 
+@media (min-height: 900px) {
+     .section-quemsoueu{
+        height: 550px;
+     }
+}
+@media (max-width: 1800px) {
+    .section-quemsoueu{
+      height: 550px;
+    }
+}
