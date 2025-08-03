@@ -184,10 +184,10 @@
 
 
 
-@media (max-width: 480px) {
+@media (max-width: 420px) {
   .meus_projetos .meus_projetos-item {
     width: 95%;
-    height: 40vh;
+    height: 200px;
     overflow: visible;
   }
 
@@ -209,5 +209,24 @@
   }
   .meus_projetos-item .item-ARTICLE {
     font-size: 16px;
+  }
+    .meus_projetos-item .item-IMAGEM {
+    max-height: 200px;
+
+    min-width: 95%;
+    max-width: 85%;
+    top: 2.5%;
+    left: 2.5%;
+  }
+
+}
+@media (min-height: 800px) {
+    .meus_projetos-item .item-IMAGEM {
+    max-height: 200px;
+
+    min-width: 95%;
+    max-width: 85%;
+    top: 2.5%;
+    left: 2.5%;
   }
 }
